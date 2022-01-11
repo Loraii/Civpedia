@@ -28,6 +28,21 @@ namespace Civpedia.Controllers
             return View();
         }
 
+        public IActionResult Merveilles()
+        {
+            return View();
+        }
+
+        public IActionResult Civilisations()
+        {
+            return View();
+        }
+
+        public IActionResult CitesEtats()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
