@@ -1,6 +1,43 @@
 ﻿@{
     ViewData["Title"] = "Les différentes Civilisations";
 }
+<link rel="stylesheet" href="~/css/Civilisations.css" />
 <h1>@ViewData["Title"]</h1>
 
 <p>Veuillez retrouver ici les différentes civilisations peuplant ce jeu.</p>
+
+<table >
+    <tr>
+        <td>Nom du dirigeant</td>
+        <td>Titre passif dirigeant</td>
+        <td>Passif dirigeant</td>
+        <td>Nom de l'empire'</td>
+        <td>Titre passif empire</td>
+        <td>Passif empire</td>
+        <td>Nom quartier empire</td>
+        <td>Quartier empire</td>
+        <td>Nom batiment empire</td>
+        <td>Batiment empire</td>
+        <td>Nom amenagement empire</td>
+        <td>Amenagement empire</td>
+    </tr>
+    @foreach (Dirigeants unDirigeant in ViewBag.Civilisations)
+    {
+<tr>
+    <td>@unDirigeant.NomDirigeant </td>
+    <td>@unDirigeant.TitrePassifDirigeant </td>
+    <td>@unDirigeant.PassifDirigeant </td>
+    <td>@unDirigeant.NomEmpire </td>
+    <td>@unDirigeant.TitrePassifEmpire </td>
+    <td>@unDirigeant.PassifEmpire </td>
+    <td>@unDirigeant.NomQuartierEmpire </td>
+    <td>@unDirigeant.QuartierEmpire </td>
+    <td>@unDirigeant.NomBatimentEmpire </td>
+    <td>@unDirigeant.BatimentEmpire </td>
+    <td>@unDirigeant.NomAmenagementEmpire </td>
+    <td>@unDirigeant.AmenagementEmpire </td>
+</tr>
+     }
+</table>
+
+

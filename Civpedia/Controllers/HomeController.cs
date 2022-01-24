@@ -12,10 +12,12 @@ namespace Civpedia.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly CivpediaModel _civPediaModel;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, CivpediaModel civPediaModel)
         {
             _logger = logger;
+            _civPediaModel = civPediaModel;
         }
 
         public IActionResult Index()
@@ -33,10 +35,12 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult Civilisations()
+        public IActionResult Civilisations(string recherche)
         {
+            ViewBag.Civilisations = _civPediaModel.getCivilisations("");
             return View();
         }
+
 
         public IActionResult CitesEtats()
         {
