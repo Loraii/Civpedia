@@ -1,11 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Les différentes Civilisations";
+    var Recherche = "";
 }
 <link rel="stylesheet" href="~/css/Civilisations.css" />
 <h1>@ViewData["Title"]</h1>
 
 <p>Veuillez retrouver ici les différentes civilisations peuplant ce jeu.</p>
 
+<form asp-controller="Home" asp-action="Civilisations" method="post">
+    Nom à rechercher:  <input asp-for="@Recherche" /> <br />
+    <button type="submit">Rechercher</button>
+</form>
 <table >
     <tr>
         <td>Nom du dirigeant</td>

@@ -35,9 +35,9 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult Civilisations(string recherche)
+        public IActionResult Civilisations(string Recherche = "")
         {
-            ViewBag.Civilisations = _civPediaModel.getCivilisations("");
+            ViewBag.Civilisations = _civPediaModel.getCivilisations(Recherche);
             return View();
         }
 
