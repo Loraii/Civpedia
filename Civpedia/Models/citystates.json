@@ -1,0 +1,343 @@
+{
+  "Cités-états": [
+    {
+	  "id": 1
+      "name": "Akkad",
+      "type": "militaire",
+	  "bonus": "Les unités de combat rapproché et celles avantagées contre la cavalerie infligent des dégâts complets aux remparts de la ville.",
+	  "aménagement": "",
+	  "unité": ""
+	},
+    {
+	  "id": 2
+      "name": "Anshan",
+      "type": "scientifique",
+	  "bonus": "Science +2 pour chaque chef d'oeuvre littéraire. Science +1 pour chaque relique et artefact.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+    {
+	  "id": 3
+      "name": "Antananarivo",
+      "type": "culturelle",
+	  "bonus": "Votre civilisation gagne 2% de culture supplémentaire pour chaque personnage illustre recruté, jusqu'à + 30% au maximum.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 4
+      "name": "Armagh",
+      "type": "religieuse",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des monastères.",
+	  "aménagement": "Monastère : Foi+2. Soins +15PV pour toute unité religieuse alliée se trouvant sur cette case et n'ayant pas attaqué ce tour. Foi +1 tous les deux quartiers adjacents. Habitations +1, et +1 à nouveau une fois le colonialisme découvert. Deux monastères ne peuvent pas être adjacents.",
+	  "unité": ""
+    },
+	  "id": 5
+      "name": "Auckland",
+      "type": "industrielle",
+	  "bonus": "Les cases d'eaux peu profondes en votre possession génèrent 1 unité de production, et 1 unité supplémentaire une fois l'ère industrielle atteinte.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 6
+      "name": "Ayutthaya",
+      "type": "culturelle",
+	  "bonus": "Gain de culture égal à 10% du coût de construction de chaque bâtiment terminé.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 7
+      "name": "Bandar Brunei",
+      "type": "marchande",
+	  "bonus": "Or +1 pour toutes les routes commerciales traversant vos comptoirs commerciaux à l'étranger ou rejoignant la ville.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 8
+      "name": "Bologne",
+      "type": "scientifique",
+	  "bonus": "Vos quartiers avec un bâtiment génèrent un point de personnage illustre de même type qu'eux (écrivain illustre, artiste illustre et musicien illustre pour la place du théâtre).",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 9
+      "name": "Bruxelles",
+      "type": "industrielle",
+	  "bonus": "Production +15% pour la construction de merveilles dans vos villes.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 10
+      "name": "Buenos Aires",
+      "type": "industrielle",
+	  "bonus": "Vos ressources bonus fonctionnent comme des ressources de luxe, vous octroyant une activité par type.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 11
+      "name": "Caguana",
+      "type": "culturelle",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des bateyes.",
+	  "aménagement": "Batey : Culture +1. Culture +1 pour chaque ressource bonus et complexe de loisirs adjacents (Culture +2 après la découverte de l'exploration). Génère du tourisme après la découverte de l'aviation. Ne peut pas être construit à côté d'un autre batey.",
+	  "unité": ""
+    },
+	  "id": 12
+      "name": "Cahokia",
+      "type": "marchande",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des monts de Cahokia.",
+	  "aménagement": "Mont de Cahokia : Or +3. Activités +1. Les villes peuvent recevoir +1 activité pour le premier aménagement des monts de Cahokia. Activité +1 lors du second aménagement des monts de Cahokia, une fois l'histoire naturelle découverte. Nourriture +1 toutes les 2 cases de quartiers adjacentes une fois la féodalité découverte, ou pour chaque quartier adjacent une fois les pièces de rechange découvertes. Habitations +1, et encore +1 une fois le patrimoine culturel découvert. Ne peut pas être adjacent à d'autres monts de Cahokia.",
+	  "unité": ""
+    },
+	  "id": 13
+      "name": "Cardiff",
+      "type": "industrielle",
+	  "bonus": "Electricité +2 pour les villes pour chaque bâtiment du port.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 14
+      "name": "Chinguetti",
+      "type": "religieuse",
+	  "bonus": "Foi +1 pour les routes commerciales intérieures et internationales pour chaque fidèle de votre religion (fondée ou adoptée) dans cette ville.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 15
+      "name": "Erevan",
+      "type": "religieuse",
+	  "bonus": "Vos apôtres peuvent choisir n'importe quelle promotion, plutôt que de recevoir une promotion aléatoire.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 16
+      "name": "Fès",
+      "type": "scientifique",
+	  "bonus": "Lorsque l'une de vos unités religieuses convertit une ville pour la première fois, vous gagnez 20 points de science par habitant de cette ville (en vitesse normale).",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 17
+      "name": "Genève",
+      "type": "scientifique",
+	  "bonus": "Science +15% pour vos villes lorsque vous n'êtes en guerre avec aucune civilisation.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 18
+      "name": "Grenade",
+      "type": "militaire",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des alcázars",
+	  "aménagement": "Alcázar : Culture +2. Octroie une quantité de science égale à 50% de l'attrait de la case. L'unité occupante voit sa puissance défensive augmenter de 4 points et gagne automatiquement 2 tours de retranchement. Génère du tourisme une fois l'aviation découverte. Deux alcázars ne peuvent pas être adjacents.",
+	  "unité": ""
+    },
+	  "id": 19
+      "name": "Hattusa",
+      "type": "scientifique",
+	  "bonus": "Vous octroie 2 ressources stratégiques de chaque type par tour. Ne concerne que les ressources découvertes, mais non aménagées.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 20
+      "name": "Hong Kong",
+      "type": "industrielle",
+	  "bonus": "Production +20% pour tous vos projets de ville.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 21
+      "name": "Hunza",
+      "type": "marchande",
+	  "bonus": "Or +1 toutes les 5 cases traversées par vos routes commerciales.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 22
+      "name": "Jérusalem",
+      "type": "religieuse",
+	  "bonus": "Vos villes possédant un lieu saint exercent de la pression comme si elles étaient des villes saintes : pression religieuse x4 pour toutes les villes dans un rayon de dix cases.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 23
+      "name": "Johannesbourg",
+      "type": "industrielle",
+	  "bonus": "Production +1 pour chaque type de ressource aménagée différent, et +2 une fois l'industrialisation découverte.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 24
+      "name": "Kaboul",
+      "type": "militaire",
+	  "bonus": "Vos unités reçoivent deux fois plus d'expérience pour les combats qu'elles engagent.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 25
+      "name": "Kandy",
+      "type": "religieuse",
+	  "bonus": "Vous recevez une relique chaque fois que vous découvrez une nouvelle merveille naturelle, ainsi qu'un bonus de foi de 50% pour toutes les reliques.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 26
+      "name": "Kumasi",
+      "type": "culturelle",
+	  "bonus": "Culture +2 et or +1 pour chaque quartier spécialisé de la ville d'origine d'une route commerciale établie avec une cité-état.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 27
+      "name": "La Valette",
+      "type": "militaire",
+	  "bonus": "Les bâtiments du centre-ville et des campements peuvent être achetés avec de la foi. Le coût d'achat des remparts antiques, médiévaux et de la rennaissance est réduit, mais ils ne peuvent être achetés qu'avec de la foi.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 28
+      "name": "La Venta",
+      "type": "religieuse",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des têtes colossales.",
+	  "aménagement": "Tête colossale : Foi +2, +1 toutes les 2 cases de forêt tropicale adjacentes, ou pour chaque case de forêt tropicale adjacente une fois l'humanisme découvert. Foi +1 toutes les 2 cases de bois adjacentes, ou pour chaque case de bois adjacente une fois l'humanisme découvert. La foi rapporte du tourisme une fois l'aviation découverte. Construction impossible sur la neige ou sur une colline enneigée.",
+	  "unité": ""
+    },
+	  "id": 29
+      "name": "Lahore",
+      "type": "militaire",
+	  "bonus": "Vos villes peuvent désormais former des unités de Nihangs.",
+	  "aménagement": "",
+	  "unité": "Nihangs : Ces unités disposent d'un arbre de promotions spécifique qui peut être cheté avec de la foi. Leur puissance de combat augmente si vous avez déjà construit une caserne, une armurerie et une école militaire."
+    },
+	  "id": 30
+      "name": "Mascate",
+      "type": "marchande",
+	  "bonus": "Activités +1 pour les villes possédant une plateforme commerciale.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 31
+      "name": "Mexico",
+      "type": "industrielle",
+	  "bonus": "La zone d'effets régionaux générés par vos zones inductrielles, vos parcs aquatiques et vos complexes de loisirs augmente de 3 cases.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 32
+      "name": "Mitla",
+      "type": "scientifique",
+	  "bonus": "La croissance des villes est 15% plus rapide avec un campus.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 33
+      "name": "Mogadiscio",
+      "type": "marchande",
+	  "bonus": "Tous vos négociants sont immunisés contre le pillage.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 34
+      "name": "Mohenjo-daro",
+      "type": "culturelle",
+	  "bonus": "Toutes vos villes sans eau douce le deviennent, leur octroyant 5 habitations de base.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 35
+      "name": "Nãlandã",
+      "type": "scientifique",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des mahaviharas.",
+	  "aménagement": "Mahavihara : Science +2 et habitations +1. Foi +1 pour chaque lieu saint adjacent et science +1 pour chaque campus adjacent. Une fois la théorie scientifique découverte, science additionnelle +1 pour chaque campus adjacent. A la construction de son premier mahavihara, le joueur reçoit une technologie aléatoire. Doit être construit sur un terrain plat. Deux mahaviharas ne peuvent pas être adjacents.",
+	  "unité": ""
+    },
+	  "id": 36
+      "name": "Nan Madol",
+      "type": "culturelle",
+	  "bonus": "Culture +1 pour vos quartiers sur ou près des côtes ou des lacs. Augmente à +2 une fois le dogme de l'Exploration découvert.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 37
+      "name": "Nazca",
+      "type": "religieuse",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des lignes de Nazca.",
+	  "aménagement": "Ligne de Nazca : Foi +1 pour les cases adjacentes. Foi +1 pour les cases adjacentes disposant d'une ressource. Nourriture +1 pour les cases de désert et de colline désertique adjacentes une fois la fonction publique découverte. Production +1 pour les cases plates adjacentes, une fois la production en série découverte. Attrait +1. Ne peut être construit que sur une case de désert plat. Cette case ne peut pas être exploitée.",
+	  "unité": ""
+    },
+	  "id": 38
+      "name": "Ngazargamu",
+      "type": "militaire",
+	  "bonus": "Le prix en or des unités militaires ou de soutien terrestres baisse de 20% par bâtiment du campement construit dans cette ville.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 39
+      "name": "Preslav",
+      "type": "militaire",
+	  "bonus": "Loyauté +40 dans toutes vos villes, vous assurant une loyauté sans faille dans tout votre empire.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 40
+      "name": "Rapa Nui",
+      "type": "culturelle",
+	  "bonus": "Vos batisseurs peuvent désormais construire des moaïs.",
+	  "aménagement": "Moaï : Culture +1. Culture +1 tous les 2 moaïs adjacents. Culture +2 si construit sur une case de sol volcanique ou sur une case adjacente. Culture +1 si adjacent à une case côtière ou lacustre. Culture et tourisme supplémentaire à mesure que vous progressez dans les arbres dogmatique et technologique. Peut être construit sur une case de plaine, de prairie, de colline de prairie ou de sol volcanique. Ne peut pas être adjacent à une case de bois ou de forêt tropicale.",
+	  "unité": ""
+    },
+	  "id": 41
+      "name": "Samarcande",
+      "type": "marchande",
+	  "bonus": "Vos bâtisseurs peuvent désormais construire des dômes commerciaux.",
+	  "aménagement": "Dôme commercial : Or +2, et +1 pour chaque ressource de luxe adjacente. Or +1 pour vos routes commerciales internationales extérieures pour chaque dôme commercial dans la ville d'origine. Deux dômes commerciaux ne peuvent pas être adjacents.",
+	  "unité": ""
+    },
+	  "id": 42
+      "name": "Singapour",
+      "type": "industrielle",
+	  "bonus": "Production +2 dans vos villes pour chaque route commerciale reliant une civilisation étrangère à la ville.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 43
+      "name": "Taruga",
+      "type": "scientifique",
+	  "bonus": "Science +5 dans toutes les villes pour chaque ressource stratégique aménagée différente qu'elles possèdent.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 44
+      "name": "Vatican",
+      "type": "religieuse",
+	  "bonus": "Lorsque vous activez un personnage illustre, il génère 400 points de pression religieuse pour la religion que vous avez fondée ( ou dominante) dans les villes dans un rayon de 10 cases.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 45
+      "name": "Venise",
+      "type": "marchande",
+	  "bonus": "Vos routes commerciales menant à des capitales étrangères gagnent une unité d'or en plus pour chaque ressource de luxe de la ville de destination.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 46
+      "name": "Vilnius",
+      "type": "culturelle",
+	  "bonus": "Toutes les places du théâtre reçoivent +50% de bonus de proximité en cas d'alliance de niveau maximum active.",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 47
+      "name": "Wolin",
+      "type": "militaire",
+	  "bonus": "Vous recevez des points d'amiral illustre lorsqu'une unité navale élimine une unité d'une autre civilisation majeure ou mineure, et de général illustre lorsqu'il s'agit d'une unité terrestre, d'un total égal à 25% de la force de l'unité adverse (en vitesse normale).",
+	  "aménagement": "",
+	  "unité": ""
+    },
+	  "id": 48
+      "name": "Zanzibar",
+      "type": "marchande",
+	  "bonus": "Vous recevez de la cannelle et des clous de girofle, deux ressources de luxe impossibles à obtenir autrement. Confère également 6 activités chacune.",
+	  "aménagement": "",
+	  "unité": ""
+    }
+  ]
+}
