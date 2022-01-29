@@ -5,6 +5,10 @@
     <ApplicationIcon>wwwroot\logo6.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.15" />
+  </ItemGroup>
+
   
 
 </Project>
