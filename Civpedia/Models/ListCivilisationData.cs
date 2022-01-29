@@ -32,6 +32,32 @@ namespace Civpedia.Models
                         TexteUnite="Unité de cavalerie lourde exclusive à la Macédoine. Puissance de combat +5 si adjacent à un général illustre. Points de général illustre +5 pour chaque ennemi tué, et commence avec une promotion gratuite."
                     }
                 },
+                NomBatimentEmpire = "Aasilikoi Paides",
+                BatimentEmpire = "Batiment exclusif à la Macédoine. Expérience au combat +25% pour toutes les unités de combat rapproché, d'attaque à distance terrestres et Hétairoi formés dans cette ville. Bonus de science égal à 25% du coût de l'unité lorsqu'une unité non civile est formée dans une ville. Réserve de ressources stratégiques +10 (en vitesse normale). Construction impossible dans un campement possédant déjà une écurie."
+            },
+            new Dirigeants()
+            {
+                Id = 1,
+                NomDirigeant = "Alexandre",
+                TitrePassifDirigeant = "Jusqu'au Bout Du Monde",
+                PassifDirigeant = "Les victoires militaires génèrent une quantité de Science égale à 25% de la Puissance de combat de l'unité vaincue (en vitesse en ligne). Les villes ne génèrent pas d'usure de guerre. Toutes les unités militaires sont entièrement soignées si le joueur capture une ville dotée d'une merveille mondiale.",
+                NomEmpire = "Macédoine",
+                TitrePassifEmpire = "Fusion Helléniste",
+                PassifEmpire = "Vous recevez une amélioration pour chaque ville capturée : Production + 20% dans toutes vos villes pendant 10 tours, un Euréka ! pour chaque campement ou campus de la ville conquise, et une Inspiration pour chaque lieu saint ou place du théâtre.",
+                UnitesEmpire = new List<UniteEmpire>() {
+                    new UniteEmpire() {
+                        Id=1,
+                        NomUnite="Hypaspiste",
+                        AtkUnite=38,
+                        TexteUnite="Exclusive à la Macédoine, cette unité de combat rapproché remplace le spadassin. Puissance de combat +10 en cas de siège d'un quartier. Bonus de soutien +50 %."
+                    } ,
+                    new UniteEmpire() {
+                        Id=2,
+                        NomUnite="Hétairoi",
+                        AtkUnite=36,
+                        TexteUnite="Unité de cavalerie lourde exclusive à la Macédoine. Puissance de combat +5 si adjacent à un général illustre. Points de général illustre +5 pour chaque ennemi tué, et commence avec une promotion gratuite."
+                    }
+                },
                 NomBatimentEmpire = "Basilikoi Paides",
                 BatimentEmpire = "Batiment exclusif à la Macédoine. Expérience au combat +25% pour toutes les unités de combat rapproché, d'attaque à distance terrestres et Hétairoi formés dans cette ville. Bonus de science égal à 25% du coût de l'unité lorsqu'une unité non civile est formée dans une ville. Réserve de ressources stratégiques +10 (en vitesse normale). Construction impossible dans un campement possédant déjà une écurie."
             },
