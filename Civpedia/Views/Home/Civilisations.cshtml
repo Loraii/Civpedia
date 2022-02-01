@@ -12,6 +12,8 @@
     var RechercheBatimentEmpire = "";
     var RechercheNomAmenagementEmpire = "";
     var RechercheAmenagementEmpire = "";
+
+    var Continents = "";
 }
 <link rel="stylesheet" href="~/css/Civilisations.css" />
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
@@ -19,41 +21,55 @@
 
 <p>Veuillez retrouver ici les différentes civilisations peuplant ce jeu.</p>
 
-<form asp-controller="Home" asp-action="Civilisations" method="post">
-    <label>Recherche :</label>
-    Nom du Dirigeant:  <input asp-for="@RechercheNomDirigeant" /> <br />
-    Titre Passif du Dirigeant:  <input asp-for="@RechercheTitrePassifDirigeant" /> <br />
-    Passif du Dirigeant:  <input asp-for="@RecherchePassifDirigeant" /> <br />
-    Nom de l'Empire:  <input asp-for="@RechercheNomEmpire" /> <br />
-    Titre Passif de l'Empire:  <input asp-for="@RechercheTitrePassifEmpire" /> <br />
-    Passif Empire:  <input asp-for="@RecherchePassifEmpire" /> <br />
-    Nom Quartier Empire:  <input asp-for="@RechercheNomQuartierEmpire" /> <br />
-    Quartier de l'Empire:  <input asp-for="@RechercheQuartierEmpire" /> <br />
-    Nom Batiment Empire:  <input asp-for="@RechercheNomBatimentEmpire" /> <br />
-    Batiment Empire:  <input asp-for="@RechercheBatimentEmpire" /> <br />
-    Nom Amenagement Empire:  <input asp-for="@RechercheNomAmenagementEmpire" /> <br />
-    Amenagement Empire:  <input asp-for="@RechercheAmenagementEmpire" /> <br />
-    <button type="submit">Rechercher</button>
-</form>
-<form asp-controller="Home" asp-action="Civilisations" method="post">
-    <table>
-        <tr>
-            <td>Nom du dirigeant <button type="submit" class="btn btn-default" name="tri" value="0"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Titre passif dirigeant <button type="submit" class="btn btn-default" name="tri" value="1"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Passif dirigeant <button type="submit" class="btn btn-default" name="tri" value="2"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Nom de l'empire <button type="submit" class="btn btn-default" name="tri" value="3"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Titre passif empire <button type="submit" class="btn btn-default" name="tri" value="4"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Passif empire <button type="submit" class="btn btn-default" name="tri" value="5"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Nom quartier empire <button type="submit" class="btn btn-default" name="tri" value="6"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Quartier empire <button type="submit" class="btn btn-default" name="tri" value="7"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Nom batiment empire <button type="submit" class="btn btn-default" name="tri" value="8"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Batiment empire <button type="submit" class="btn btn-default" name="tri" value="9"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Nom amenagement empire <button type="submit" class="btn btn-default" name="tri" value="10"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-            <td>Amenagement empire <button type="submit" class="btn btn-default" name="tri" value="11"><span class="iconify" data-icon="oi:align-center"></span></button></td>
-        </tr>
+<label for="continent-select">Civilisations originaire du continent : </label>
 
-    @foreach (Dirigeants unDirigeant in ViewBag.Civilisations)
-    {
+<form asp-controller="Home" asp-action="Civilisations" method="post">
+    <div>
+    <select name="continents" id="continent-select" asp-for="@Continents">
+        <option value=""></option>
+        <option value="europe">Europe</option>
+        <option value="asie">Asie</option>
+        <option value="amerique">Amerique</option>
+        <option value="afrique">Afrique</option>
+    </select>
+    <button type="submit">Rechercher</button>
+        </div>
+    <div>
+        <label>Recherche :</label>
+        Nom du Dirigeant:  <input asp-for="@RechercheNomDirigeant" /> <br />
+        Titre Passif du Dirigeant:  <input asp-for="@RechercheTitrePassifDirigeant" /> <br />
+        Passif du Dirigeant:  <input asp-for="@RecherchePassifDirigeant" /> <br />
+        Nom de l'Empire:  <input asp-for="@RechercheNomEmpire" /> <br />
+        Titre Passif de l'Empire:  <input asp-for="@RechercheTitrePassifEmpire" /> <br />
+        Passif Empire:  <input asp-for="@RecherchePassifEmpire" /> <br />
+        Nom Quartier Empire:  <input asp-for="@RechercheNomQuartierEmpire" /> <br />
+        Quartier de l'Empire:  <input asp-for="@RechercheQuartierEmpire" /> <br />
+        Nom Batiment Empire:  <input asp-for="@RechercheNomBatimentEmpire" /> <br />
+        Batiment Empire:  <input asp-for="@RechercheBatimentEmpire" /> <br />
+        Nom Amenagement Empire:  <input asp-for="@RechercheNomAmenagementEmpire" /> <br />
+        Amenagement Empire:  <input asp-for="@RechercheAmenagementEmpire" /> <br />
+        <button type="submit">Rechercher</button>
+        </div>
+    <div>
+        <table>
+            <tr>
+                <td>Nom du dirigeant <button type="submit" class="btn btn-default" name="tri" value="0"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Titre passif dirigeant <button type="submit" class="btn btn-default" name="tri" value="1"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Passif dirigeant <button type="submit" class="btn btn-default" name="tri" value="2"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Nom de l'empire <button type="submit" class="btn btn-default" name="tri" value="3"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Titre passif empire <button type="submit" class="btn btn-default" name="tri" value="4"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Passif empire <button type="submit" class="btn btn-default" name="tri" value="5"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Unité empire</td>
+                <td>Nom quartier empire <button type="submit" class="btn btn-default" name="tri" value="6"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Quartier empire <button type="submit" class="btn btn-default" name="tri" value="7"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Nom batiment empire <button type="submit" class="btn btn-default" name="tri" value="8"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Batiment empire <button type="submit" class="btn btn-default" name="tri" value="9"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Nom amenagement empire <button type="submit" class="btn btn-default" name="tri" value="10"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Amenagement empire <button type="submit" class="btn btn-default" name="tri" value="11"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+            </tr>
+
+            @foreach (Dirigeants unDirigeant in ViewBag.Civilisations)
+            {
         <tr>
             <td>@unDirigeant.NomDirigeant </td>
             <td>@unDirigeant.TitrePassifDirigeant </td>
@@ -61,15 +77,25 @@
             <td>@unDirigeant.NomEmpire </td>
             <td>@unDirigeant.TitrePassifEmpire </td>
             <td>@unDirigeant.PassifEmpire </td>
-            <td>@unDirigeant.NomQuartierEmpire </td>
-            <td>@unDirigeant.QuartierEmpire </td>
-            <td>@unDirigeant.NomBatimentEmpire </td>
-            <td>@unDirigeant.BatimentEmpire </td>
-            <td>@unDirigeant.NomAmenagementEmpire </td>
-            <td>@unDirigeant.AmenagementEmpire </td>
-        </tr>
-    }
-</table>
+            <td>
+                <ul>
+                    @foreach (UniteEmpire uneUnite in unDirigeant.UnitesEmpire)
+                    {
+                        <li><a asp-controller="Home" asp-action="Unite" asp-route-idCivilisation="@unDirigeant.Id" asp-route-idUnite="@uneUnite.Id">@uneUnite.NomUnite</a></li>
+                    }
+                </ul>
+                </td>
+            
+                <td>@unDirigeant.NomQuartierEmpire </td>
+                <td>@unDirigeant.QuartierEmpire </td>
+                <td>@unDirigeant.NomBatimentEmpire </td>
+                <td>@unDirigeant.BatimentEmpire </td>
+                <td>@unDirigeant.NomAmenagementEmpire </td>
+                <td>@unDirigeant.AmenagementEmpire </td>
+            </tr>
+            }
+        </table>
+        </div>
     </form>
 
 

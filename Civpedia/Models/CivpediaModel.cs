@@ -13,12 +13,30 @@ namespace Civpedia.Models
         {
         }
 
-        public List<Dirigeants> getCivilisations(string RechercheNomDirigeant, string RechercheTitrePassifDirigeant, string RecherchePassifDirigeant, string RechercheNomEmpire, string RechercheTitrePassifEmpire, string RecherchePassifEmpire, string RechercheNomQuartierEmpire, string RechercheQuartierEmpire, string RechercheNomBatimentEmpire, string RechercheBatimentEmpire, string RechercheNomAmenagementEmpire, string RechercheAmenagementEmpire, TriEntity unTri)
+        public List<Dirigeants> getCivilisations(string RechercheNomDirigeant, string RechercheTitrePassifDirigeant, string RecherchePassifDirigeant, string RechercheNomEmpire, string RechercheTitrePassifEmpire, string RecherchePassifEmpire, string RechercheNomQuartierEmpire, string RechercheQuartierEmpire, string RechercheNomBatimentEmpire, string RechercheBatimentEmpire, string RechercheNomAmenagementEmpire, string RechercheAmenagementEmpire, TriEntity unTri, string continent)
         {
 
             List<Dirigeants> lesDirigeants = lesCivilisations.AsQueryable().Where(x => x.NomDirigeant.Contains(RechercheNomDirigeant, StringComparison.CurrentCultureIgnoreCase)).OrderBy("NomDirigeant , NomBatimentEmpire desc" ).Select(x => x).ToList();
 
             List<Dirigeants> lesDirigeants2 = lesCivilisations.Select(x =>x).ToList();
+
+            switch(continent)
+            {
+                case "europe":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListEurope.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+                case "amerique":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAmerique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+                case "asie":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAsie.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+                case "afrique":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAfrique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+            }
+
+            
 
             if (!String.IsNullOrEmpty(RechercheNomDirigeant))
             {
@@ -74,7 +92,7 @@ namespace Civpedia.Models
             
             if (!String.IsNullOrEmpty(order))
             {
-                 lesDirigeants2 = lesCivilisations.AsQueryable().OrderBy(order).Select(x => x).ToList();
+                 lesDirigeants2 = lesDirigeants2.AsQueryable().OrderBy(order).Select(x => x).ToList();
             }
             foreach (Dirigeants unDirigeant in lesDirigeants)
             {
@@ -89,7 +107,16 @@ namespace Civpedia.Models
             return lesDirigeants2;
         }
 
-        private string returnOrder(TriEntity unTri)
+        public UniteEmpire getUnite(int idCivilisation, int idUnite)
+        {
+            List<List<UniteEmpire>> liste = lesCivilisations.Where(x => x.Id == idCivilisation).Select(x => x.UnitesEmpire).ToList();
+            //liste.ForEach(x => x.Where(y => y.Id) == idUnite).Select(y => y));
+            List<UniteEmpire> uneListe = liste[0].Where(x => x.Id == idUnite).Select(x => x).ToList();
+            return uneListe[0];
+        
+        }
+
+            private string returnOrder(TriEntity unTri)
         {
             List<string> listOrdering = new List<string>();
             if (unTri.NameDirigeantOrder == "NameDirigeant")

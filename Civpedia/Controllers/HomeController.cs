@@ -36,7 +36,18 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult Civilisations(string RechercheNomDirigeant = "", string RechercheTitrePassifDirigeant = "", string RecherchePassifDirigeant = "", string RechercheNomEmpire = "", string RechercheTitrePassifEmpire = "", string RecherchePassifEmpire = "", string RechercheNomQuartierEmpire = "", string RechercheQuartierEmpire = "", string RechercheNomBatimentEmpire = "", string RechercheBatimentEmpire = "", string RechercheNomAmenagementEmpire = "", string RechercheAmenagementEmpire = "", string tri = "")
+        public IActionResult Conversion()
+        {
+            return View();
+        }
+
+        public IActionResult Unite(int idCivilisation, int idUnite)
+        {
+            ViewBag.Unite = _civPediaModel.getUnite(idCivilisation, idUnite);
+            return View();
+        }
+
+        public IActionResult Civilisations(string RechercheNomDirigeant = "", string RechercheTitrePassifDirigeant = "", string RecherchePassifDirigeant = "", string RechercheNomEmpire = "", string RechercheTitrePassifEmpire = "", string RecherchePassifEmpire = "", string RechercheNomQuartierEmpire = "", string RechercheQuartierEmpire = "", string RechercheNomBatimentEmpire = "", string RechercheBatimentEmpire = "", string RechercheNomAmenagementEmpire = "", string RechercheAmenagementEmpire = "", string tri = "", string continents = "")
         {
             TriEntity unTri = Tri(tri);
             RechercheNomDirigeant = String.IsNullOrEmpty(RechercheNomDirigeant) ? "" : RechercheNomDirigeant;
@@ -51,7 +62,7 @@ namespace Civpedia.Controllers
             RechercheBatimentEmpire = String.IsNullOrEmpty(RechercheBatimentEmpire) ? "" : RechercheBatimentEmpire;
             RechercheNomAmenagementEmpire = String.IsNullOrEmpty(RechercheNomAmenagementEmpire) ? "" : RechercheNomAmenagementEmpire;
             RechercheAmenagementEmpire = String.IsNullOrEmpty(RechercheAmenagementEmpire) ? "" : RechercheAmenagementEmpire;
-            ViewBag.Civilisations = _civPediaModel.getCivilisations(RechercheNomDirigeant, RechercheTitrePassifDirigeant, RecherchePassifDirigeant, RechercheNomEmpire, RechercheTitrePassifEmpire, RecherchePassifEmpire, RechercheNomQuartierEmpire, RechercheQuartierEmpire, RechercheNomBatimentEmpire, RechercheBatimentEmpire, RechercheNomAmenagementEmpire, RechercheAmenagementEmpire, unTri);
+            ViewBag.Civilisations = _civPediaModel.getCivilisations(RechercheNomDirigeant, RechercheTitrePassifDirigeant, RecherchePassifDirigeant, RechercheNomEmpire, RechercheTitrePassifEmpire, RecherchePassifEmpire, RechercheNomQuartierEmpire, RechercheQuartierEmpire, RechercheNomBatimentEmpire, RechercheBatimentEmpire, RechercheNomAmenagementEmpire, RechercheAmenagementEmpire, unTri, continents);
             return View();
         }
 

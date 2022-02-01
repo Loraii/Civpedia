@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = $"Les Informations de l'unité : {ViewBag.Unite.NomUnite}";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (!String.IsNullOrEmpty(ViewBag.Unite.NomUnite))
+{
+    <div class="card">
+    <h5> Nom de l'unité : @ViewBag.Unite.NomUnite </h5>
+        </div>
+        <br />
+}
+@if (!String.IsNullOrEmpty(ViewBag.Unite.TexteUnite))
+{
+<div class="card">
+    <h5> Information sur l'unité : @ViewBag.Unite.TexteUnite </h5>
+</div>
+<br />
+}
+@if (!String.IsNullOrEmpty(ViewBag.Unite.AmenagementUnite))
+{
+<div class="card">
+    <h5> Amenagement de l'unité : @ViewBag.Unite.AmenagementUnite </h5>
+</div>
+<br />
+}
+@if (!String.IsNullOrEmpty(ViewBag.Unite.AtkUnite.ToString()))
+{
+<div class="card">
+    <h5>Attaque de l'unité :  @ViewBag.Unite.AtkUnite </h5>
+</div>
+}
+
+
