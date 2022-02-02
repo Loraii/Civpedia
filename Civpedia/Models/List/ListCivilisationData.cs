@@ -64,7 +64,7 @@ namespace Civpedia.Models
             new Dirigeants()
             {
                 Id = 2,
-                NomDirigeant = "Aliénor d'Aquitaine (Angleterre)",
+                NomDirigeant = "Aliénor d'Aquitaine",
                 TitrePassifDirigeant = "Cour d'Amour",
                 PassifDirigeant = "Production +100% pour les bâtiments de la Place du Théâtre. Loyauté -1 par tour dans les villes étrangères pour chaque chef-d'oeuvre présent dans l'une des villes d'Aliénor, dans un rayon de 9 cases. Une ville qui quitte une autre civilisation suite à une perte de loyauté et dont la majeure partie de la loyauté provient de la civilisation d'Aliénor rejoint directement celle-ci sans passer par le statut de ville libre.",
                 NomEmpire = "Angleterre",
@@ -84,7 +84,7 @@ namespace Civpedia.Models
         new Dirigeants()
         {
             Id = 3,
-                NomDirigeant = "Aliénor d'Aquitaine (France)",
+                NomDirigeant = "Aliénor d'Aquitaine",
                 TitrePassifDirigeant = "Cour d'Amour",
                 PassifDirigeant = "Production +100% pour les bâtiments de la Place du Théâtre. Loyauté -1 par tour dans les villes étrangères pour chaque chef-d'oeuvre présent dans l'une des villes d'Aliénor, dans un rayon de 9 cases. Une ville qui quitte une autre civilisation suite à une perte de loyauté et dont la majeure partie de la loyauté provient de la civilisation d'Aliénor rejoint directement celle-ci sans passer par le statut de ville libre.",
                 NomEmpire = "France",
