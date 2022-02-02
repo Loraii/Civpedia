@@ -21,10 +21,10 @@
 
 <p>Veuillez retrouver ici les différentes civilisations peuplant ce jeu.</p>
 
-<label for="continent-select">Civilisations originaire du continent : </label>
 
 <form asp-controller="Home" asp-action="Civilisations" method="post">
     <div class="card">
+        <label for="continent-select">Civilisations originaire du continent : </label>
         <select name="continents" id="continent-select" asp-for="@Continents">
             <option value=""></option>
             <option value="europe">Europe</option>
