@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Civpedia.Models
+﻿namespace Civpedia.Models
 {
     public class TriEntity
     {
