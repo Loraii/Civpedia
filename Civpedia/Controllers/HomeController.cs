@@ -31,7 +31,16 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult Merveilles()
+        public IActionResult Merveilles(string RechercheNomMerveille = "", string RechercheEffetMerveille = "", string tri = "")
+        {
+            string triAFaire = TriMerveillesNaturelles(tri);
+            RechercheNomMerveille = String.IsNullOrEmpty(RechercheNomMerveille) ? "" : RechercheNomMerveille;
+            RechercheEffetMerveille = String.IsNullOrEmpty(RechercheEffetMerveille) ? "" : RechercheEffetMerveille;
+            ViewBag.MerveillesNaturelles = _civPediaModel.getMerveillesNaturelles(RechercheNomMerveille, RechercheEffetMerveille, triAFaire);
+            return View();
+        }
+
+        public IActionResult MerveillesMonde()
         {
             return View();
         }
@@ -66,7 +75,7 @@ namespace Civpedia.Controllers
 
         public IActionResult Civilisations(string RechercheNomDirigeant = "", string RechercheTitrePassifDirigeant = "", string RecherchePassifDirigeant = "", string RechercheNomEmpire = "", string RechercheTitrePassifEmpire = "", string RecherchePassifEmpire = "", string RechercheNomQuartierEmpire = "", string RechercheQuartierEmpire = "", string RechercheNomBatimentEmpire = "", string RechercheBatimentEmpire = "", string RechercheNomAmenagementEmpire = "", string RechercheAmenagementEmpire = "", string tri = "", string continents = "")
         {
-            TriEntity unTri = Tri(tri);
+            TriEntity unTri = TriCivilisation(tri);
             RechercheNomDirigeant = String.IsNullOrEmpty(RechercheNomDirigeant) ? "" : RechercheNomDirigeant;
             RechercheTitrePassifDirigeant = String.IsNullOrEmpty(RechercheTitrePassifDirigeant) ? "" : RechercheTitrePassifDirigeant;
             RecherchePassifDirigeant = String.IsNullOrEmpty(RecherchePassifDirigeant) ? "" : RecherchePassifDirigeant;
@@ -83,7 +92,7 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public TriEntity Tri(string tri = "")
+        public TriEntity TriCivilisation(string tri = "")
         {
             switch(tri)
             {
@@ -142,6 +151,27 @@ namespace Civpedia.Controllers
 
 
             return unTri;
+        }
+
+        public string TriMerveillesNaturelles(string tri = "")
+        {
+            string retour = "";
+            switch (tri)
+            {
+                case "0":
+                    HttpContext.Session.SetString("NameMerveilleOrder", HttpContext.Session.GetString("NameMerveilleOrder") == "NameMerveille" ? "NameMerveilleDesc" : HttpContext.Session.GetString("NameMerveilleOrder") == "NameMerveilleDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("NameMerveilleOrder")) ? "NameMerveille" : "");
+                    retour = HttpContext.Session.GetString("NameMerveilleOrder");
+                    HttpContext.Session.SetString("EffetMerveilleOrder", "");
+                    break;
+                case "1":
+                    HttpContext.Session.SetString("EffetMerveilleOrder", HttpContext.Session.GetString("EffetMerveilleOrder") == "EffetMerveille" ? "EffetMerveilleDesc" : HttpContext.Session.GetString("EffetMerveilleOrder") == "EffetMerveilleDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("EffetMerveilleOrder")) ? "EffetMerveille" : "");
+                    retour = HttpContext.Session.GetString("EffetMerveilleOrder");
+                    HttpContext.Session.SetString("NameMerveilleOrder", "");
+                    break;
+                
+            }
+
+            return retour;
         }
 
         public IActionResult CitesEtats()

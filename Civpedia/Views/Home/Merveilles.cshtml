@@ -1,6 +1,47 @@
 ﻿@{
-    ViewData["Title"] = "Les différentes Merveilles";
+    ViewData["Title"] = "Les différentes Merveilles naturelles";
+    var RechercheNomMerveille = "";
+    var RechercheEffetMerveille = "";
 }
+<link rel="stylesheet" href="~/css/Merveilles.css" />
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <h1>@ViewData["Title"]</h1>
 
-<p>Veuillez retrouver ici les différentes merveilles que l'on retrouve dans le jeu.</p>
+<p>Veuillez retrouver ici les différentes merveilles naturelles que l'on retrouve dans le jeu.</p>
+<form asp-controller="Home" asp-action="Merveilles" method="post">
+    <!--<div class="card">
+        <label for="continent-select">Civilisations originaire du continent : </label>
+        <select name="continents" id="continent-select" asp-for="Continents">
+            <option value=""></option>
+            <option value="europe">Europe</option>
+            <option value="asie">Asie</option>
+            <option value="amerique">Amerique</option>
+            <option value="afrique">Afrique</option>
+        </select>
+        <button type="submit">Rechercher</button>
+    </div>
+    <br /> -->
+    <div class="card">
+        <label>Recherche :</label>
+        Nom de la merveille:  <input asp-for="@RechercheNomMerveille" /> <br />
+        Effet de la merveille:  <input asp-for="@RechercheEffetMerveille" /> <br />
+        <button type="submit">Rechercher</button>
+    </div>
+    <br />
+    <div>
+        <table>
+            <tr>
+                <td>Nom de la merveille <button type="submit" class="btn btn-default" name="tri" value="0"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Effet de la merveille <button type="submit" class="btn btn-default" name="tri" value="1"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+            </tr>
+
+            @foreach (var uneMerveille in ViewBag.MerveillesNaturelles)
+            {
+                <tr>
+                    <td>@uneMerveille.Element("nom").Value </td>
+                    <td>@uneMerveille.Element("effet").Value </td>
+                </tr>
+            }
+        </table>
+    </div>
+    </form>

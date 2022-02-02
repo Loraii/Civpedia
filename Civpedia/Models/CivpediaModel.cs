@@ -121,6 +121,60 @@ namespace Civpedia.Models
             return uneListe[0];
         
         }
+
+        public List<XElement> getMerveillesNaturelles(string RechercheNomMerveille, string RechercherEffetMerveille, string triAFaire)
+        {
+
+            var listeMerveillesNaturelles = lesMerveillesNaturelles.Descendants("merveille").Select(x => x).ToList();
+
+            if (!String.IsNullOrEmpty(RechercheNomMerveille))
+            {
+                listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => x.Element("nom").Value.Contains(RechercheNomMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercherEffetMerveille))
+            {
+                listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => x.Element("effet").Value.Contains(RechercherEffetMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+
+            /*switch (continent)
+            {
+                case "europe":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListEurope.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+                case "amerique":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAmerique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+                case "asie":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAsie.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+                case "afrique":
+                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAfrique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                    break;
+            }*/
+            if (triAFaire == "NameMerveille")
+            {
+                listeMerveillesNaturelles = listeMerveillesNaturelles.OrderBy(x => x.Element("nom").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "NameMerveilleDesc")
+            {
+                listeMerveillesNaturelles = listeMerveillesNaturelles.OrderByDescending(x => x.Element("nom").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "EffetMerveille")
+            {
+                listeMerveillesNaturelles = listeMerveillesNaturelles.OrderBy(x => x.Element("effet").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "EffetMerveilleDesc")
+            {
+                listeMerveillesNaturelles = listeMerveillesNaturelles.OrderByDescending(x => x.Element("effet").Value).Select(x => x).ToList();
+            }
+
+            /*foreach (Dirigeants unDirigeant in lesDirigeants2)
+            {
+                Console.WriteLine(unDirigeant.NomDirigeant);
+            }*/
+            //List<Dirigeants> lesDirigeants = lesCivilisations.Where(x => x.NomDirigeant.Contains(champRecherche, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            return listeMerveillesNaturelles;
+        }
         public void conversionEnListe(string Donnees)
         {
             switch (Donnees)
