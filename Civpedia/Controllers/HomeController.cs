@@ -31,6 +31,11 @@ namespace Civpedia.Controllers
             return View();
         }
 
+        public IActionResult AddCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire)
+        {
+            return View("Civilisations");
+        }
+
         public IActionResult Merveilles(string RechercheNomMerveille = "", string RechercheEffetMerveille = "", string tri = "", string TailleMerveille = "")
         {
             string triAFaire = TriMerveillesNaturelles(tri);
@@ -54,9 +59,6 @@ namespace Civpedia.Controllers
         {
             switch(TypeConversion)
             {
-                case "liste":
-                    _civPediaModel.conversionEnListe(Donnees);
-                    break;
                 case "xml":
                     _civPediaModel.conversionEnXML(Donnees);
                     break;

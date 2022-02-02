@@ -22,8 +22,6 @@ namespace Civpedia.Models
         public List<Dirigeants> getCivilisations(string RechercheNomDirigeant, string RechercheTitrePassifDirigeant, string RecherchePassifDirigeant, string RechercheNomEmpire, string RechercheTitrePassifEmpire, string RecherchePassifEmpire, string RechercheNomQuartierEmpire, string RechercheQuartierEmpire, string RechercheNomBatimentEmpire, string RechercheBatimentEmpire, string RechercheNomAmenagementEmpire, string RechercheAmenagementEmpire, TriEntity unTri, string continent)
         {
 
-            List<Dirigeants> lesDirigeants = lesCivilisations.AsQueryable().Where(x => x.NomDirigeant.Contains(RechercheNomDirigeant, StringComparison.CurrentCultureIgnoreCase)).OrderBy("NomDirigeant , NomBatimentEmpire desc" ).Select(x => x).ToList();
-
             List<Dirigeants> lesDirigeants2 = lesCivilisations.Select(x =>x).ToList();
 
             switch(continent)
@@ -100,16 +98,7 @@ namespace Civpedia.Models
             {
                  lesDirigeants2 = lesDirigeants2.AsQueryable().OrderBy(order).Select(x => x).ToList();
             }
-            foreach (Dirigeants unDirigeant in lesDirigeants)
-            {
-                Console.WriteLine(unDirigeant.NomDirigeant);
-            }
-
-            foreach (Dirigeants unDirigeant in lesDirigeants2)
-            {
-                Console.WriteLine(unDirigeant.NomDirigeant);
-            }
-            //List<Dirigeants> lesDirigeants = lesCivilisations.Where(x => x.NomDirigeant.Contains(champRecherche, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            
             return lesDirigeants2;
         }
 
@@ -177,56 +166,83 @@ namespace Civpedia.Models
                 listeMerveillesNaturelles = listeMerveillesNaturelles.OrderByDescending(x => x.Element("effet").Value).Select(x => x).ToList();
             }
 
-            /*foreach (Dirigeants unDirigeant in lesDirigeants2)
-            {
-                Console.WriteLine(unDirigeant.NomDirigeant);
-            }*/
-            //List<Dirigeants> lesDirigeants = lesCivilisations.Where(x => x.NomDirigeant.Contains(champRecherche, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
             return listeMerveillesNaturelles;
         }
-        public void conversionEnListe(string Donnees)
-        {
-            switch (Donnees)
-            {
-                case "civilisations":
-                    List<Dirigeants> lesDirigeants = lesCivilisations.Select(x => x).ToList();
-                    foreach(var unDirigeant in lesDirigeants)
-                    {
-                        Console.WriteLine(unDirigeant.NomDirigeant);
-                    }
-                    break;
-                case "citesEtats":
-                    var listCitesEtats = lesCitesEtats["Cités-états"].Select(x => x).ToList();
-                    foreach (var uneCiteEtat in listCitesEtats)
-                    {
-                        Console.WriteLine(uneCiteEtat["name"]);
-                    }
-                    break;
-                case "merveillesNaturelles":
-                    var listMerveillesNaturelles = lesMerveillesNaturelles.Descendants("merveille").Select(x => x).ToList();
-                    foreach (var uneMerveilleNaturelle in listMerveillesNaturelles)
-                    {
-                        Console.WriteLine(uneMerveilleNaturelle.Element("nom").Value);
-                    }
-                    break;
-                case "merveillesMonde":
-                    var listMerveillesMonde = lesMerveillesDuMondes.Descendants("merveille").Select(x => x).ToList();
-                    break;
-            }
 
-
-        }
+        
         public void conversionEnXML(string Donnees)
         {
             switch (Donnees)
             {
                 case "civilisations":
+                    var newXmlCivilisationFile = new XElement("Civilisations",
+                        from civilisation in lesCivilisations
+                        select new XElement("Civilisation",
+                        new XElement("Id", civilisation.Id),
+                        new XElement("NomDirigeant", civilisation.NomDirigeant),
+                        new XElement("TitrePassifDirigeant", civilisation.TitrePassifDirigeant),
+                        new XElement("PassifDirigeant", civilisation.PassifDirigeant),
+                        new XElement("NomEmpire", civilisation.NomEmpire),
+                        new XElement("TitrePassifEmpire", civilisation.TitrePassifEmpire),
+                        new XElement("PassifEmpire", civilisation.PassifEmpire),
+                        //new XElement("UnitesEmpire",
+                        from uniteEmpire in civilisation.UnitesEmpire
+                        select new XElement("UnitesEmpire",
+                        new XElement("IdUnite", uniteEmpire.Id),
+                        new XElement("NomUnite", uniteEmpire.NomUnite),
+                        new XElement("AtkUnite", uniteEmpire.AtkUnite),
+                        new XElement("TexteUnite", uniteEmpire.TexteUnite),
+                        new XElement("AmenagementUnite", uniteEmpire.AmenagementUnite)
+                        ),
+                        new XElement("NomQuartierEmpire", civilisation.NomQuartierEmpire),
+                        new XElement("QuartierEmpire", civilisation.QuartierEmpire),
+                        new XElement("NomBatimentEmpire", civilisation.NomBatimentEmpire),
+                        new XElement("BatimentEmpire", civilisation.BatimentEmpire),
+                        new XElement("NomAmenagementEmpire", civilisation.NomAmenagementEmpire),
+                        new XElement("AmenagementEmpire", civilisation.AmenagementEmpire)
+                        )
+                        );
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/civilisations.xml", newXmlCivilisationFile.ToString());
                     break;
                 case "citesEtats":
+                    var newXmlCitesEtatsFile = new XElement("Cités-états",
+                        from citeEtat in lesCitesEtats["Cités-états"]
+                        select new XElement("Cité-état",
+                        new XElement("Id", citeEtat["id"]),
+                        new XElement("Name", citeEtat["name"]),
+                        new XElement("Type", citeEtat["type"]),
+                        new XElement("Bonus", citeEtat["bonus"]),
+                        new XElement("Amenagement", citeEtat["amenagement"]),
+                        new XElement("Unite", citeEtat["unité"])
+                        )
+                        );
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/citystates.xml", newXmlCitesEtatsFile.ToString());
                     break;
                 case "merveillesNaturelles":
+                    var newXmlMerveillesNaturellesFile = new XElement("merveilles-naturelles",
+                        from merveillesNaturelles in lesMerveillesNaturelles.Descendants("merveille")
+                        select new XElement("merveille",
+                        new XElement("id", merveillesNaturelles.Element("id").Value),
+                        new XElement("nom", merveillesNaturelles.Element("nom").Value),
+                        new XElement("effet", merveillesNaturelles.Element("effet").Value),
+                        new XElement("nbCases", merveillesNaturelles.Element("nbCases").Value)
+                        )
+                        );
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/merveillesnaturelles.xml", newXmlMerveillesNaturellesFile.ToString());
                     break;
                 case "merveillesMonde":
+                    var newXmlMerveillesMondesFile = new XElement("merveilles",
+                        from merveillesNaturelles in lesMerveillesNaturelles.Descendants("merveille")
+                        select new XElement("merveille",
+                        new XElement("id", merveillesNaturelles.Element("id").Value),
+                        new XElement("nom", merveillesNaturelles.Element("nom").Value),
+                        new XElement("ere", merveillesNaturelles.Element("ere").Value),
+                        new XElement("prerequis", merveillesNaturelles.Element("prerequis").Value),
+                        new XElement("cout-production", merveillesNaturelles.Element("cout-production").Value),
+                        new XElement("effet", merveillesNaturelles.Element("effet").Value)
+                        )
+                        );
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/merveilles.xml", newXmlMerveillesMondesFile.ToString());
                     break;
             }
 
@@ -236,13 +252,86 @@ namespace Civpedia.Models
             switch (Donnees)
             {
                 case "civilisations":
+                    var myJsonCivilisationFile =
+                        new JObject(
+                            new JProperty("Civilisations",
+                            new JArray(
+                                from civilisation in lesCivilisations
+                                select new JObject(
+                                    new JProperty("id", civilisation.Id),
+                                    new JProperty("nomDirigeant", civilisation.NomDirigeant),
+                                    new JProperty("titrePassifDirigeant", civilisation.TitrePassifDirigeant),
+                                    new JProperty("passifDirigeant", civilisation.PassifDirigeant),
+                                    new JProperty("nomEmpire", civilisation.NomEmpire),
+                                    new JProperty("titrePassifEmpire", civilisation.TitrePassifEmpire),
+                                    new JProperty("passifEmpire", civilisation.PassifEmpire),
+                                    new JProperty("unitesEmpire",
+                                    new JArray(
+                                        from unite in civilisation.UnitesEmpire
+                                        select new JObject(
+                                            new JProperty("idUnite", unite.Id),
+                                            new JProperty("nomUnite", unite.NomUnite),
+                                            new JProperty("atkUnite", unite.AtkUnite),
+                                            new JProperty("texteUnite", unite.TexteUnite),
+                                            new JProperty("amenagementUnite", unite.AmenagementUnite)
+                                        ))),
+                                        new JProperty("nomQuartierEmpire", civilisation.NomQuartierEmpire),
+                                        new JProperty("quartierEmpire", civilisation.QuartierEmpire),
+                                        new JProperty("nomBatimentEmpire", civilisation.NomBatimentEmpire),
+                                        new JProperty("batimentEmpire", civilisation.BatimentEmpire),
+                                        new JProperty("nomAmenagementEmpire", civilisation.NomAmenagementEmpire),
+                                        new JProperty("amenagementEmpire", civilisation.AmenagementEmpire)
+                                    ))));
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/civilisations.json", myJsonCivilisationFile.ToString());
                     break;
                 case "citesEtats":
+                    var myJsonCitesEtatsFile =
+                        new JObject(
+                            new JProperty("Cités-Etats",
+                            new JArray(
+                                from citeEtat in lesCitesEtats["Cités-états"]
+                                select new JObject(
+                                    new JProperty("id", citeEtat["id"]),
+                                    new JProperty("name", citeEtat["name"]),
+                                    new JProperty("type", citeEtat["type"]),
+                                    new JProperty("bonus", citeEtat["bonus"]),
+                                    new JProperty("amenagement", citeEtat["amenagement"]),
+                                    new JProperty("unité", citeEtat["unité"])
+                                    ))));
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/citystates.json", myJsonCitesEtatsFile.ToString());
                     break;
                 case "merveillesNaturelles":
+                    var myJsonMerveillesNaturellesFile =
+                        new JObject(
+                            new JProperty("Merveilles-Naturelles",
+                            new JArray(
+                                from merveille in lesMerveillesNaturelles.Descendants("merveille")
+                                select new JObject(
+                                    new JProperty("id", merveille.Element("id").Value),
+                                    new JProperty("nom", merveille.Element("nom").Value),
+                                    new JProperty("effet", merveille.Element("effet").Value),
+                                    new JProperty("nbCases", merveille.Element("nbCases").Value)
+                                    ))));
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/merveillesnaturelles.json", myJsonMerveillesNaturellesFile.ToString());
                     break;
                 case "merveillesMonde":
+                    var myJsonMerveillesMondeFile =
+                        new JObject(
+                            new JProperty("Merveilles",
+                            new JArray(
+                                from merveille in lesMerveillesNaturelles.Descendants("merveille")
+                                select new JObject(
+                                    new JProperty("id", merveille.Element("id").Value),
+                                    new JProperty("nom", merveille.Element("nom").Value),
+                                    new JProperty("ere", merveille.Element("ere").Value),
+                                    new JProperty("prerequis", merveille.Element("prerequis").Value),
+                                    new JProperty("cout-production", merveille.Element("cout-production").Value),
+                                    new JProperty("effet", merveille.Element("effet").Value)
+                                    ))));
+                    File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/merveilles.json", myJsonMerveillesMondeFile.ToString());
                     break;
+
+                    
             }
 
 

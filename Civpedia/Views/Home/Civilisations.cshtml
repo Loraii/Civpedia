@@ -13,6 +13,27 @@
     var RechercheNomAmenagementEmpire = "";
     var RechercheAmenagementEmpire = "";
 
+    var NomDirigeant = "";
+    var TitrePassifDirigeant = "";
+    var PassifDirigeant = "";
+    var NomEmpire = "";
+    var TitrePassifEmpire = "";
+    var PassifEmpire = "";
+    var NomQuartierEmpire = "";
+    var QuartierEmpire = "";
+    var NomBatimentEmpire = "";
+    var BatimentEmpire = "";
+    var NomAmenagementEmpire = "";
+    var AmenagementEmpire = "";
+
+    var nbrligne = 1;
+
+    String[] NomUnite = new string[100];
+    String[] AttaqueUnite = new string[100];
+    String[] TexteUnite = new string[100];
+    String[] AmenagementUnite = new string[100];
+
+
     var Continents = "";
 }
 <link rel="stylesheet" href="~/css/Civilisations.css" />
@@ -100,4 +121,53 @@
     </div>
 </form>
 
+<form asp-controller="Home" asp-action="AddCivilisation" method="post">
+    <div class="card">
+        <label>Ajouter une civilisation : </label>
 
+        <label for="nomDirigeant">Nom du dirigeant : </label>
+        <input asp-for="@NomDirigeant" />
+        <label for="nomDirigeant">Titre du passif du dirigeant : </label>
+        <input asp-for="@TitrePassifDirigeant" />
+        <label for="nomDirigeant">Passif du dirigeant : </label>
+        <input asp-for="@PassifDirigeant" />
+        <label for="nomDirigeant">Nom Empire : </label>
+        <input asp-for="@NomEmpire" />
+        <label for="nomDirigeant">Titre passif empire : </label>
+        <input asp-for="@TitrePassifEmpire" />
+        <label for="nomDirigeant">Passif empire : </label>
+        <input asp-for="@PassifEmpire" />
+        <label for="nomDirigeant">Unité empire : </label>
+        <table>
+            <tr>
+                <td>Nom unité</td>
+                <td>Attaque unité</td>
+                <td>Texte unité</td>
+                <td>Amenagement unité</td>
+
+
+                @for (int i = 0; i < nbrligne; i++)
+                {
+                    <td><input asp-for="@NomUnite[i]" /></td>
+                    <td><input asp-for="@AttaqueUnite[i]" /></td>
+                    <td><input asp-for="@TexteUnite[i]" /></td>
+                    <td><input asp-for="@AmenagementUnite[i]" /></td>
+
+                }
+            </tr>
+            </table>
+                <label for="nomDirigeant">Nom quartier empire : </label>
+                <input asp-for="@NomQuartierEmpire" />
+                <label for="nomDirigeant">Quartier empire : </label>
+                <input asp-for="@QuartierEmpire" />
+                <label for="nomDirigeant">Nom batiment empire : </label>
+                <input asp-for="@NomBatimentEmpire" />
+                <label for="nomDirigeant">Batiment Empire : </label>
+                <input asp-for="@BatimentEmpire" />
+                <label for="nomDirigeant">Nom amenagement empire : </label>
+                <input asp-for="@NomAmenagementEmpire" />
+                <label for="nomDirigeant">Amenagement empire : </label>
+                <input asp-for="@AmenagementEmpire" />
+                <button type="submit">Rechercher</button>
+    </div>
+</form>
