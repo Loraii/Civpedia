@@ -31,12 +31,12 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult Merveilles(string RechercheNomMerveille = "", string RechercheEffetMerveille = "", string tri = "")
+        public IActionResult Merveilles(string RechercheNomMerveille = "", string RechercheEffetMerveille = "", string tri = "", string TailleMerveille = "")
         {
             string triAFaire = TriMerveillesNaturelles(tri);
             RechercheNomMerveille = String.IsNullOrEmpty(RechercheNomMerveille) ? "" : RechercheNomMerveille;
             RechercheEffetMerveille = String.IsNullOrEmpty(RechercheEffetMerveille) ? "" : RechercheEffetMerveille;
-            ViewBag.MerveillesNaturelles = _civPediaModel.getMerveillesNaturelles(RechercheNomMerveille, RechercheEffetMerveille, triAFaire);
+            ViewBag.MerveillesNaturelles = _civPediaModel.getMerveillesNaturelles(RechercheNomMerveille, RechercheEffetMerveille, triAFaire, TailleMerveille);
             return View();
         }
 

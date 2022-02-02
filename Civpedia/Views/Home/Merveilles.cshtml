@@ -2,6 +2,7 @@
     ViewData["Title"] = "Les différentes Merveilles naturelles";
     var RechercheNomMerveille = "";
     var RechercheEffetMerveille = "";
+    var TailleMerveille = "";
 }
 <link rel="stylesheet" href="~/css/Merveilles.css" />
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
@@ -9,18 +10,21 @@
 
 <p>Veuillez retrouver ici les différentes merveilles naturelles que l'on retrouve dans le jeu.</p>
 <form asp-controller="Home" asp-action="Merveilles" method="post">
-    <!--<div class="card">
-        <label for="continent-select">Civilisations originaire du continent : </label>
-        <select name="continents" id="continent-select" asp-for="Continents">
+    <div class="card">
+        <label for="taille-select">Taille de la merveille : </label>
+        <select name="tailleMerveille" id="taille-select" asp-for="@TailleMerveille">
             <option value=""></option>
-            <option value="europe">Europe</option>
-            <option value="asie">Asie</option>
-            <option value="amerique">Amerique</option>
-            <option value="afrique">Afrique</option>
+            <option value="-1">Inconnu</option>
+            <option value="1">1 case</option>
+            <option value="2">2 cases</option>
+            <option value="3">3 cases</option>
+            <option value="4">4 cases</option>
+            <option value="2-">Inférieur ou égale 2 cases</option>
+            <option value="2+">Supérieur à 2 cases</option>
         </select>
         <button type="submit">Rechercher</button>
     </div>
-    <br /> -->
+    <br /> 
     <div class="card">
         <label>Recherche :</label>
         Nom de la merveille:  <input asp-for="@RechercheNomMerveille" /> <br />

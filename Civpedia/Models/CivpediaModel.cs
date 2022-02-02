@@ -122,7 +122,7 @@ namespace Civpedia.Models
         
         }
 
-        public List<XElement> getMerveillesNaturelles(string RechercheNomMerveille, string RechercherEffetMerveille, string triAFaire)
+        public List<XElement> getMerveillesNaturelles(string RechercheNomMerveille, string RechercherEffetMerveille, string triAFaire, string TailleMerveille)
         {
 
             var listeMerveillesNaturelles = lesMerveillesNaturelles.Descendants("merveille").Select(x => x).ToList();
@@ -136,21 +136,30 @@ namespace Civpedia.Models
                 listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => x.Element("effet").Value.Contains(RechercherEffetMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
             }
 
-            /*switch (continent)
+            switch (TailleMerveille)
             {
-                case "europe":
-                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListEurope.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                case "-1":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) == -1).Select(x => x).ToList();
                     break;
-                case "amerique":
-                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAmerique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                case "1":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) == 1).Select(x => x).ToList();
                     break;
-                case "asie":
-                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAsie.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                case "2":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) == 2).Select(x => x).ToList();
                     break;
-                case "afrique":
-                    lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAfrique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
+                case "3":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) == 3).Select(x => x).ToList();
                     break;
-            }*/
+                case "4":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) == 4).Select(x => x).ToList();
+                    break;
+                case "2-":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) <= 2 && Convert.ToInt32(x.Element("nbCases").Value) >= 0).Select(x => x).ToList();
+                    break;
+                case "2+":
+                    listeMerveillesNaturelles = listeMerveillesNaturelles.Where(x => Convert.ToInt32(x.Element("nbCases").Value) > 2).Select(x => x).ToList();
+                    break;
+            }
             if (triAFaire == "NameMerveille")
             {
                 listeMerveillesNaturelles = listeMerveillesNaturelles.OrderBy(x => x.Element("nom").Value).Select(x => x).ToList();
