@@ -1,0 +1,271 @@
+<merveilles-naturelles>
+	<merveille>
+		<id>1</id>
+		<nom>Baie de Ha Long</nom>
+		<effet>Merveille naturelle de deux cases se trouvant sur les côtes. Nourriture +3, production +1, et culture +1. Puissance de combat +15 en défense sur cette case.</effet>
+	</merveille>
+	<merveille>
+		<id>2</id>
+		<nom>Barringer Crater</nom>
+		<effet>Merveille naturelle d'une case. Science +3 et or +3. +10% de production pour les projets de course à l'espace si vous possédez cette case..</effet>
+	</merveille>
+	<merveille>
+		<id>3</id>
+		<nom>Bassin de l'Oubsou-Nour</nom>
+		<effet>Merveille naturelle de quatre cases prenant la forme d'un marais. Foi +2, nourriture +2 et production +2.</effet>
+	</merveille>
+	<merveille>
+		<id>4</id>
+		<nom>Bioluminescent Bay</nom>
+		<effet>Merveille naturelle d'une case. Science +3, nourriture +1, et or +1. +1 d'or sur les bateaux de pêche si vous possédez cette case.</effet>
+	</merveille><merveille>
+		<id>5</id>
+		<nom>Cerro de Potosi</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Apparait comme une montagne. Production +1 et or +3 pour les cases adjacentes</effet>
+	</merveille>
+	<merveille>
+		<id>6</id>
+		<nom>Chaussée des Géants</nom>
+		<effet>Les unités militaires terrestres qui pénètrent sur une case adjacente reçoivent la compétence "Lance de Fionn"(puissance de combat +5). Culture +1 pour les cases adjacentes;</effet>
+	</merveille>
+	<merveille>
+		<id>7</id>
+		<nom>Chocolate Hills</nom>
+		<effet>Merveille naturelle de quatre cases. Nourriture +3, production +3, et science +1.</effet>
+	</merveille>
+	<merveille>
+		<id>8</id>
+		<nom>Crater Lake</nom>
+		<effet>Merveille naturelle d'une case prenant la forme d'un lac. Nourriture +2, science +2, et foi +4 et source d'eau douce.</effet>
+	</merveille>
+	<merveille>
+		<id>9</id>
+		<nom>Dallol</nom>
+		<effet>Merveille naturelle d'une case. Science +2, production +2, et or +1.</effet>
+	</merveille>
+	<merveille>
+		<id>10</id>
+		<nom>Delicate Arch</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Foi +2 et or +1 pour toutes les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>11</id>
+		<nom>Désert blanc</nom>
+		<effet>Merveille naturelle de quatre cases. Science +2, culture +2, et or +6.</effet>
+	</merveille>
+	<merveille>
+		<id>12</id>
+		<nom>Eyjafjallajökull</nom>
+		<effet>Culture +1 et nourriture +2 pour les cases adjacentes..</effet>
+	</merveille>
+	<merveille>
+		<id>13</id>
+		<nom>Falaises de Douvres</nom>
+		<effet>Merveille naturelle de deux cases pouvant apparaître sur des falaises adjacentes à de l'eau. Culture +3, nourriture +2, et or +3. Attrait +4 pour les cases adjacentes, au lieu des +2 habituels pour les merveilles naturelles. Cette case ne peut pas être aménagée.</effet>
+	</merveille>
+	<merveille>
+		<id>14</id>
+		<nom>Fontaine de Jouvence</nom>
+		<effet>Merveille naturelle occupant une case. Science +4, foi +4 et octroie de l'eau douce. Les unités militaires terrestres qui pénètrent sur la case gagnent la capacité "Eau de la vie"(guérison +10 PV sur n'importe quel territoire).</effet>
+	</merveille>
+	<merveille>
+		<id>15</id>
+		<nom>Gobustan</nom>
+		<effet>Merveille naturelle de trois cases. Culture et production +4.</effet>
+	</merveille>
+	<merveille>
+		<id>16</id>
+		<nom>Grand Mesa</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Nourriture +1 et culture +1 pour toutes les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>17</id>
+		<nom>Grande barrière de corail</nom>
+		<effet>Merveille naturelle de deux cases se trouvant sur les côtes. Nourriture +3 et science +2. Donne un bonus de proximité majeur pour les campus.</effet>
+	</merveille>
+	<merveille>
+		<id>18</id>
+		<nom>Ik Kil</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Production +50% lors de la construction de merveilles et de quartiers sur les cases adjacentes. Fournit de l'eau douce.</effet>
+	</merveille>
+	<merveille>
+		<id>19</id>
+		<nom>Îles Galapagos</nom>
+		<effet>Merveille naturelle infranchissable de deux cases pouvant apparaître sur les côtes. Science +2 et nourriture +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>20</id>
+		<nom>Kilimandjaro</nom>
+		<effet>Merveille naturelle infranchissable d'une case, prenant la forme d'un volcan. Nourriture +2 pour les cases adjacentes. En cas d'éruption, octroie un rendement faible, avec une forte probabilité d'endommager les bâtiments et les quartiers. Eruptions peu fréquentes, mais toujours en activité.</effet>
+	</merveille>
+	<merveille>
+		<id>21</id>
+		<nom>Krakatoa</nom>
+		<effet>Merveille naturelle infranchissable d'une case, prenant la forme d'un volcan. Science +2 pour les cases adjacentes. En cas d'éruption, octroie un rendement élevé au prix de citoyens et de dégâts aux infrastructures. Toujours en activité.</effet>
+	</merveille>
+	<merveille>
+		<id>22</id>
+		<nom>Lac Retba</nom>
+		<effet>Merveille naturelle de deux cases prenant la forme d'un lac. Nourriture, culture et or +2 et production +1..</effet>
+	</merveille>
+	<merveille>
+		<id>23</id>
+		<nom>Lake Victoria</nom>
+		<effet>Merveille naturelle de quatre cases. Apparaît sous la forme d'un lac et fournit de l'eau douce. Nourriture +3, culture +1, et or +1.</effet>
+	</merveille>
+	<merveille>
+		<id>24</id>
+		<nom>Lakes of Ounianga</nom>
+		<effet>Merveille naturelle de deux cases. Fournit de l'eau douce. Nourriture +2, culture +1, et or +1. Nourriture +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>25</id>
+		<nom>Lençois Maranhenses</nom>
+		<effet>Merveille naturelle de deux cases. Fournit de l'eau douce. Nourriture +2, culture +3. Culture +1 pour les déserts et les plaines inondables si vous possédez au moins l'une de ces cases.</effet>
+	</merveille>
+	<merveille>
+		<id>26</id>
+		<nom>Lysefjord</nom>
+		<effet>Les unités militaires navales qui pénètrent sur une case adjacente reçoivent immédiatement leur promotion suivante. Production +1 pour les cases adjacentes..</effet>
+	</merveille>
+	<merveille>
+		<id>27</id>
+		<nom>Mato Tipila</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Foi +2 et production +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>28</id>
+		<nom>Mer Morte</nom>
+		<effet>Merveille naturelle de deux cases prenant la forme d'un lac. Nourriture, foi et culture +2. Les unités qui se soignent sur une case adjacente à la mer Morte récupèrent tous leurs PV.</effet>
+	</merveille>
+	<merveille>
+		<id>29</id>
+		<nom>Mont Cervin</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Culture +1 pour les cases adjacentes. Puissance de combat +3 pour les unités militaires terrestres combattant dans les collines, qui ignorent celles-ci lorsqu'elles se déplacent près du Cervin jusqu'à la fin de la partie.</effet>
+	</merveille>
+	<merveille>
+		<id>30</id>
+		<nom>Mont Everest</nom>
+		<effet>Merveille naturelle infranchissable de trois cases. Foi +1 pour les cases adjacentes. Les unités religieuses se trouvant sur une case adjacente au mont Everest se déplacent gratuitement sur les collines pour le restant de la partie.</effet>
+	</merveille>
+	<merveille>
+		<id>31</id>
+		<nom>Mont Roraima</nom>
+		<effet>Merveille infranchissable de quatre cases. Foi et science +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>32</id>
+		<nom>Mosi-oa-Tunya</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Fournit de l'eau douce. Nourriture +2 pour les cases adjacentes. Fournit + 4 d'attrait aux cases adjacentes au lieu du +2 habituel.</effet>
+	</merveille>
+	<merveille>
+		<id>33</id>
+		<nom>Motlatse Canyon</nom>
+		<effet>Merveille naturelle infranchissable de quatre cases. Culture +1 et foi +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>34</id>
+		<nom>Mount Kailash</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Apparaît sous la forme d'une montagne. Foi +1 et culture +1 pour les cases adjacentes. Culture +1 pour les villes étrangères qui suivent votre religion si vous possédez cette case..</effet>
+	</merveille>
+	<merveille>
+		<id>35</id>
+		<nom>Mount Sinai</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Apparaît sous la forme d'une montagne. Foi +2 pour les cases adjacentes. Les unités religieuses qui se déplacent à côté du mont Sinai gagnent +15 de puissance de combat en combat religieux.</effet>
+	</merveille>
+	<merveille>
+		<id>36</id>
+		<nom>Namib Sand Sea</nom>
+		<effet>Merveille naturelle de trois cases. Culture +3 et or +2. Les unités de reconnaissance qui passent par la mer de sable Namib obtiennent un point de mouvement supplémentaire pour le reste de la partie.</effet>
+	</merveille>
+	<merveille>
+		<id>37</id>
+		<nom>Oeil de l'Afrique</nom>
+		<effet>Merveille naturelle de trois cases. Production +2 et science +1. Une fois que vous entrez dans l'ère atomique, confère un bonus supplémentaire de production +1 et science +3.</effet>
+	</merveille>
+	<merveille>
+		<id>38</id>
+		<nom>Old Faithful</nom>
+		<effet>Merveille naturelle d'une case. Science +3, foi +1, et  or +1. Bonus de proximité majeur pour les campus.</effet>
+	</merveille>
+	<merveille>
+		<id>39</id>
+		<nom>Païtiti</nom>
+		<effet>Merveille naturelle infranchissable de trois cases. Or +1 et culture +1 sur les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>40</id>
+		<nom>Pamukkale</nom>
+		<effet>Merveille naturelle infranchissable de deux cases. Activités +1. Octroie une activité supplémentaire si adjacent à un complexe de loisirs. Bonus de proximité important pour les places du théâtre, les campus et les plateformes commerciales. Bonus de proximité standard pour les lieux saints. Fournit de l'eau douce.</effet>
+	</merveille>
+	<merveille>
+		<id>41</id>
+		<nom>Pantanal</nom>
+		<effet>Merveille naturelle de quatre cases prenant la forme d'un marais. Nourriture +2, science +2 et culture +2.</effet>
+	</merveille>
+	<merveille>
+		<id>42</id>
+		<nom>Piopiotahi</nom>
+		<effet>Merveille naturelle infranchissable de trois cases. Culture +1 et or +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>43</id>
+		<nom>Rock of Gibraltar</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Nourriture +1 et or +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>44</id>
+		<nom>Salar de Uyuni</nom>
+		<effet>Merveille naturelle de quatre cases. Science +2, production +1, et or +2. Bonus de proximité majeur pour les plateformes commerciales.</effet>
+	</merveille>
+	<merveille>
+		<id>45</id>
+		<nom>Sri Pada</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Apparaît sous la forme d'une montagne. Nourriture +1 et foi +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>46</id>
+		<nom>Torres del Paine</nom>
+		<effet>Merveille naturelle infranchissable de deux cases. Rendement de toutes les cases adjacentes multiplié par deux.</effet>
+	</merveille>
+	<merveille>
+		<id>47</id>
+		<nom>Triangle des Bermudes</nom>
+		<effet>Merveille naturelle de trois cases. Les unités qui y pénètrent sont téléportées dans un océan lointain, mais les unités navales y gagnent la capcité 'Courants mystérieux"(PM +1).</effet>
+	</merveille>
+	<merveille>
+		<id>48</id>
+		<nom>Tsingy de Bemaraha</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Culture +1 et science +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>49</id>
+		<nom>Uluru</nom>
+		<effet>Merveille naturelle infranchissable d'une case. Culture +2 et foi +2 pour les cases adjacentes. Attrait +4 pour les cases adjacentes, au lieu des +2 habituels.</effet>
+	</merveille>
+	<merveille>
+		<id>50</id>
+		<nom>Vésuve</nom>
+		<effet>Merveille naturelle infranchissable d'une case, prenant la forme d'un volcan. Production +1 pour les cases adjacentes. En cas d'éruption, octroie un rendement élevé aux cases adjacentes, mais entraîne des pertes conséquentes de population. Il est toujours en activité.</effet>
+	</merveille>
+	<merveille>
+		<id>51</id>
+		<nom>Vredefort Dome</nom>
+		<effet>Merveille naturelle de deux cases. Nourriture +2, science +2, et culture +1.</effet>
+	</merveille>
+	<merveille>
+		<id>52</id>
+		<nom>Wulingyuan</nom>
+		<effet>Merveille naturelle infranchissable de deux cases. Culture +2 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>53</id>
+		<nom>Yosemite</nom>
+		<effet>MMerveille naturelle infranchissable de deux cases. Or +1, nourriture +1 et science +1 pour les cases adjacentes.</effet>
+	</merveille>
+	<merveille>
+		<id>54</id>
+		<nom>Zhangye Danxia</nom>
+		<effet>Merveille naturelle infranchissable de trois cases. Points de général illustre et points de marchand illustre +2 si vous possédez au moins l'une de ces cases.</effet>
+	</merveille>
+</merveilles-naturelles>
