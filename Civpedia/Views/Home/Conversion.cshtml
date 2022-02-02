@@ -1,6 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Conversion de données";
+
+    var Donnees = "";
+    var TypeConversion = "";
 }
 
 <h1>@ViewData["Title"]</h1>
 <p>Voici la page permettant de convertir un type de donnée vers un autre type de donnée</p>
+
+<form asp-controller="Home" asp-action="ConversionDonnees" method="post">
+    <div class="card">
+        <p>Conversion de </p>
+        <select name="donnees" id="donnees-select" asp-for="@Donnees">
+            <option value="civilisations">Civilisations</option>
+            <option value="citesEtats">Cités Etats</option>
+            <option value="merveillesNaturelles">Merveilles Naturelles</option>
+            <option value="merveillesMonde">Merveilles du Monde</option>
+        </select>
+        <p> en </p>
+        <select name="typeConversion" id="typeConversion-select" asp-for="@TypeConversion">
+            <option value="liste">Liste</option>
+            <option value="xml">XML</option>
+            <option value="json">JSON</option>
+        </select>
+        <button type="submit">Rechercher</button>
+    </div>
+</form>

@@ -41,6 +41,23 @@ namespace Civpedia.Controllers
             return View();
         }
 
+        public IActionResult ConversionDonnees(string Donnees, string TypeConversion)
+        {
+            switch(TypeConversion)
+            {
+                case "liste":
+                    _civPediaModel.conversionEnListe(Donnees);
+                    break;
+                case "xml":
+                    _civPediaModel.conversionEnXML(Donnees);
+                    break;
+                case "json":
+                    _civPediaModel.conversionEnJson(Donnees);
+                    break;
+            }
+            return View("Index");
+        }
+
         public IActionResult Unite(int idCivilisation, int idUnite)
         {
             ViewBag.Unite = _civPediaModel.getUnite(idCivilisation, idUnite);

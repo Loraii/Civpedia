@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Dynamic.Core;
+using System.Xml.Linq;
 
 namespace Civpedia.Models
 {
     public class CivpediaModel
     {
         private List<Dirigeants> lesCivilisations = ListCivilisationData.ListDirigeants;
+        private JObject lesCitesEtats = JObject.Parse(File.ReadAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/citystates.json"));
+        private XElement lesMerveillesNaturelles = XElement.Load($@"{Directory.GetCurrentDirectory()}/Models/XML/merveillesnaturelles.xml");
+        private XElement lesMerveillesDuMondes = XElement.Load($@"{Directory.GetCurrentDirectory()}/Models/XML/merveilles.xml");
 
         public CivpediaModel()
         {
@@ -115,8 +121,71 @@ namespace Civpedia.Models
             return uneListe[0];
         
         }
+        public void conversionEnListe(string Donnees)
+        {
+            switch (Donnees)
+            {
+                case "civilisations":
+                    List<Dirigeants> lesDirigeants = lesCivilisations.Select(x => x).ToList();
+                    foreach(var unDirigeant in lesDirigeants)
+                    {
+                        Console.WriteLine(unDirigeant.NomDirigeant);
+                    }
+                    break;
+                case "citesEtats":
+                    var listCitesEtats = lesCitesEtats["Cités-états"].Select(x => x).ToList();
+                    foreach (var uneCiteEtat in listCitesEtats)
+                    {
+                        Console.WriteLine(uneCiteEtat["name"]);
+                    }
+                    break;
+                case "merveillesNaturelles":
+                    var listMerveillesNaturelles = lesMerveillesNaturelles.Descendants("merveille").Select(x => x).ToList();
+                    foreach (var uneMerveilleNaturelle in listMerveillesNaturelles)
+                    {
+                        Console.WriteLine(uneMerveilleNaturelle.Element("nom").Value);
+                    }
+                    break;
+                case "merveillesMonde":
+                    var listMerveillesMonde = lesMerveillesDuMondes.Descendants("merveille").Select(x => x).ToList();
+                    break;
+            }
 
-            private string returnOrder(TriEntity unTri)
+
+        }
+        public void conversionEnXML(string Donnees)
+        {
+            switch (Donnees)
+            {
+                case "civilisations":
+                    break;
+                case "citesEtats":
+                    break;
+                case "merveillesNaturelles":
+                    break;
+                case "merveillesMonde":
+                    break;
+            }
+
+        }
+        public void conversionEnJson(string Donnees)
+        {
+            switch (Donnees)
+            {
+                case "civilisations":
+                    break;
+                case "citesEtats":
+                    break;
+                case "merveillesNaturelles":
+                    break;
+                case "merveillesMonde":
+                    break;
+            }
+
+
+        }
+
+        private string returnOrder(TriEntity unTri)
         {
             List<string> listOrdering = new List<string>();
             if (unTri.NameDirigeantOrder == "NameDirigeant")
