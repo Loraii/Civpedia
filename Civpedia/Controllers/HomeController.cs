@@ -31,9 +31,19 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult AddCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire)
+        
+        public IActionResult AddCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire, string[] NomUnite, int[] AttaqueUnite, string[] TexteUnite, string[] AmenagementUnite)
         {
+            _civPediaModel.addCivilisation(NomDirigeant, TitrePassifDirigeant, PassifDirigeant, NomEmpire, TitrePassifEmpire, PassifEmpire, NomQuartierEmpire, QuartierEmpire, NomBatimentEmpire, BatimentEmpire, NomAmenagementEmpire, AmenagementEmpire, NomUnite, AttaqueUnite, TexteUnite, AmenagementUnite);
+             Civilisations();
             return View("Civilisations");
+        }
+
+        public IActionResult AddMerveilleNaturelle(string NomMerveille, string Effet, int NbCases)
+        {
+            _civPediaModel.addMerveilleNaturelle(NomMerveille, Effet, NbCases);
+            Merveilles();
+            return View("Merveilles");
         }
 
         public IActionResult Merveilles(string RechercheNomMerveille = "", string RechercheEffetMerveille = "", string tri = "", string TailleMerveille = "")

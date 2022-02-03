@@ -169,7 +169,55 @@ namespace Civpedia.Models
             return listeMerveillesNaturelles;
         }
 
-        
+        public void addCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire, string[] NomUnite, int[] AttaqueUnite, string[] TexteUnite, string[] AmenagementUnite)
+        {
+            Dirigeants toto = new Dirigeants()
+            {
+                Id = lesCivilisations.OrderByDescending(x => x.Id).Select(x => x.Id).First() + 1,
+                NomDirigeant = NomDirigeant,
+                TitrePassifDirigeant = TitrePassifDirigeant,
+                PassifDirigeant = PassifDirigeant,
+                NomEmpire = NomEmpire,
+                TitrePassifEmpire = TitrePassifEmpire,
+                PassifEmpire = PassifEmpire,
+                UnitesEmpire = new List<UniteEmpire>() {
+                    new UniteEmpire() {
+                        Id=1,
+                        NomUnite=NomUnite[0],
+                        AtkUnite=AttaqueUnite[0],
+                        TexteUnite=TexteUnite[0],
+                        AmenagementUnite= AmenagementUnite[0]
+                    } ,
+                    new UniteEmpire() {
+                        Id=2,
+                        NomUnite=NomUnite[1],
+                        AtkUnite=AttaqueUnite[1],
+                        TexteUnite=TexteUnite[1],
+                        AmenagementUnite= AmenagementUnite[1]
+                    }
+                },
+                NomQuartierEmpire = NomQuartierEmpire,
+                QuartierEmpire = QuartierEmpire,
+                NomBatimentEmpire = NomBatimentEmpire,
+                BatimentEmpire = BatimentEmpire,
+                NomAmenagementEmpire = NomAmenagementEmpire,
+                AmenagementEmpire = AmenagementEmpire
+            };
+            lesCivilisations.Add(toto);
+        }
+
+        public void addMerveilleNaturelle(string NomMerveille, string Effet, int NbCases)
+        {
+
+            
+            lesMerveillesNaturelles.Add(new XElement("merveille",
+                        new XElement("id", Convert.ToInt32(lesMerveillesNaturelles.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
+                        new XElement("nom", NomMerveille),
+                        new XElement("effet", Effet),
+                        new XElement("nbCases", NbCases)
+                        ));
+        }
+
         public void conversionEnXML(string Donnees)
         {
             switch (Donnees)

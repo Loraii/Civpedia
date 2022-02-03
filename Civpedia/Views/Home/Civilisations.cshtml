@@ -26,15 +26,16 @@
     var NomAmenagementEmpire = "";
     var AmenagementEmpire = "";
 
-    var nbrligne = 1;
+    var nbrligne = 2;
 
-    String[] NomUnite = new string[100];
-    String[] AttaqueUnite = new string[100];
-    String[] TexteUnite = new string[100];
-    String[] AmenagementUnite = new string[100];
+    string[] NomUnite = new string[100];
+    int[] AttaqueUnite = new int[100];
+    string[] TexteUnite = new string[100];
+    string[] AmenagementUnite = new string[100];
 
 
     var Continents = "";
+
 }
 <link rel="stylesheet" href="~/css/Civilisations.css" />
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
@@ -144,17 +145,20 @@
                 <td>Attaque unité</td>
                 <td>Texte unité</td>
                 <td>Amenagement unité</td>
-
-
-                @for (int i = 0; i < nbrligne; i++)
-                {
-                    <td><input asp-for="@NomUnite[i]" /></td>
-                    <td><input asp-for="@AttaqueUnite[i]" /></td>
-                    <td><input asp-for="@TexteUnite[i]" /></td>
-                    <td><input asp-for="@AmenagementUnite[i]" /></td>
-
-                }
             </tr>
+
+
+
+            @for (int i = 0; i < nbrligne; i++)
+            {
+        <tr>
+            <td><input asp-for="@NomUnite[i]" /></td>
+            <td><input  type="number" asp-for="@AttaqueUnite[i]" /></td>
+            <td><input asp-for="@TexteUnite[i]" /></td>
+            <td><input asp-for="@AmenagementUnite[i]" /></td>
+        </tr>
+                    }
+                
             </table>
                 <label for="nomDirigeant">Nom quartier empire : </label>
                 <input asp-for="@NomQuartierEmpire" />
@@ -171,3 +175,6 @@
                 <button type="submit">Rechercher</button>
     </div>
 </form>
+
+
+

@@ -3,6 +3,10 @@
     var RechercheNomMerveille = "";
     var RechercheEffetMerveille = "";
     var TailleMerveille = "";
+
+    var NomMerveille = "";
+    var Effet = "";
+    var NbCases = 0;
 }
 <link rel="stylesheet" href="~/css/Merveilles.css" />
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
@@ -49,3 +53,17 @@
         </table>
     </div>
     </form>
+
+<form asp-controller="Home" asp-action="AddMerveilleNaturelle" method="post">
+    <div class="card">
+        <label>Ajouter une merveille : </label>
+
+        <label for="nomMerveille">Nom de la merveille : </label>
+        <input asp-for="@NomMerveille" />
+        <label for="effet">Effet : </label>
+        <input asp-for="@Effet" />
+        <label for="nbCases">Nombre de case : </label>
+        <input type="number" asp-for="@NbCases" />
+        <button type="submit">Rechercher</button>
+    </div>
+</form>
