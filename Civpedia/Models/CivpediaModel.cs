@@ -256,12 +256,12 @@ namespace Civpedia.Models
                     var newXmlCitesEtatsFile = new XElement("Cités-états",
                         from citeEtat in lesCitesEtats["Cités-états"]
                         select new XElement("Cité-état",
-                        new XElement("Id", citeEtat["id"]),
-                        new XElement("Name", citeEtat["name"]),
-                        new XElement("Type", citeEtat["type"]),
-                        new XElement("Bonus", citeEtat["bonus"]),
-                        new XElement("Amenagement", citeEtat["amenagement"]),
-                        new XElement("Unite", citeEtat["unité"])
+                        new XElement("Id", (int)citeEtat["id"]),
+                        new XElement("Name", (string)citeEtat["name"]),
+                        new XElement("Type", (string)citeEtat["type"]),
+                        new XElement("Bonus", (string)citeEtat["bonus"]),
+                        new XElement("Amenagement", (string)citeEtat["aménagement"]),
+                        new XElement("Unite", (string)citeEtat["unité"])
                         )
                         );
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/citystates.xml", newXmlCitesEtatsFile.ToString());
@@ -335,7 +335,7 @@ namespace Civpedia.Models
                 case "citesEtats":
                     var myJsonCitesEtatsFile =
                         new JObject(
-                            new JProperty("Cités-Etats",
+                            new JProperty("Cités-états",
                             new JArray(
                                 from citeEtat in lesCitesEtats["Cités-états"]
                                 select new JObject(
@@ -343,7 +343,7 @@ namespace Civpedia.Models
                                     new JProperty("name", citeEtat["name"]),
                                     new JProperty("type", citeEtat["type"]),
                                     new JProperty("bonus", citeEtat["bonus"]),
-                                    new JProperty("amenagement", citeEtat["amenagement"]),
+                                    new JProperty("aménagement", citeEtat["aménagement"]),
                                     new JProperty("unité", citeEtat["unité"])
                                     ))));
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/citystates.json", myJsonCitesEtatsFile.ToString());
