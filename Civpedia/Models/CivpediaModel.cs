@@ -233,15 +233,15 @@ namespace Civpedia.Models
                         new XElement("NomEmpire", civilisation.NomEmpire),
                         new XElement("TitrePassifEmpire", civilisation.TitrePassifEmpire),
                         new XElement("PassifEmpire", civilisation.PassifEmpire),
-                        //new XElement("UnitesEmpire",
+                        new XElement("UnitesEmpire",
                         from uniteEmpire in civilisation.UnitesEmpire
-                        select new XElement("UnitesEmpire",
+                        select new XElement("UniteEmpire",
                         new XElement("IdUnite", uniteEmpire.Id),
                         new XElement("NomUnite", uniteEmpire.NomUnite),
                         new XElement("AtkUnite", uniteEmpire.AtkUnite),
                         new XElement("TexteUnite", uniteEmpire.TexteUnite),
                         new XElement("AmenagementUnite", uniteEmpire.AmenagementUnite)
-                        ),
+                        )),
                         new XElement("NomQuartierEmpire", civilisation.NomQuartierEmpire),
                         new XElement("QuartierEmpire", civilisation.QuartierEmpire),
                         new XElement("NomBatimentEmpire", civilisation.NomBatimentEmpire),
