@@ -40,8 +40,6 @@ namespace Civpedia.Models
                     break;
             }
 
-            
-
             if (!String.IsNullOrEmpty(RechercheNomDirigeant))
             {
                 lesDirigeants2 = lesDirigeants2.Where(x => x.NomDirigeant.Contains(RechercheNomDirigeant, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
@@ -92,7 +90,6 @@ namespace Civpedia.Models
             }
 
             string order = returnOrder(unTri);
-
             
             if (!String.IsNullOrEmpty(order))
             {
@@ -209,7 +206,6 @@ namespace Civpedia.Models
         public void addMerveilleNaturelle(string NomMerveille, string Effet, int NbCases)
         {
 
-            
             lesMerveillesNaturelles.Add(new XElement("merveille",
                         new XElement("id", Convert.ToInt32(lesMerveillesNaturelles.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
                         new XElement("nom", NomMerveille),
@@ -252,6 +248,7 @@ namespace Civpedia.Models
                         );
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/civilisations.xml", newXmlCivilisationFile.ToString());
                     break;
+
                 case "citesEtats":
                     var newXmlCitesEtatsFile = new XElement("Cités-états",
                         from citeEtat in lesCitesEtats["Cités-états"]
@@ -266,6 +263,7 @@ namespace Civpedia.Models
                         );
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/citystates.xml", newXmlCitesEtatsFile.ToString());
                     break;
+
                 case "merveillesNaturelles":
                     var newXmlMerveillesNaturellesFile = new XElement("merveilles-naturelles",
                         from merveillesNaturelles in lesMerveillesNaturelles.Descendants("merveille")
@@ -278,6 +276,7 @@ namespace Civpedia.Models
                         );
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/merveillesnaturelles.xml", newXmlMerveillesNaturellesFile.ToString());
                     break;
+
                 case "merveillesMonde":
                     var newXmlMerveillesMondesFile = new XElement("merveilles",
                         from merveillesNaturelles in lesMerveillesNaturelles.Descendants("merveille")
@@ -332,6 +331,7 @@ namespace Civpedia.Models
                                     ))));
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/civilisations.json", myJsonCivilisationFile.ToString());
                     break;
+
                 case "citesEtats":
                     var myJsonCitesEtatsFile =
                         new JObject(
@@ -348,6 +348,7 @@ namespace Civpedia.Models
                                     ))));
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/citystates.json", myJsonCitesEtatsFile.ToString());
                     break;
+
                 case "merveillesNaturelles":
                     var myJsonMerveillesNaturellesFile =
                         new JObject(
@@ -362,6 +363,7 @@ namespace Civpedia.Models
                                     ))));
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/merveillesnaturelles.json", myJsonMerveillesNaturellesFile.ToString());
                     break;
+
                 case "merveillesMonde":
                     var myJsonMerveillesMondeFile =
                         new JObject(
@@ -379,7 +381,6 @@ namespace Civpedia.Models
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/merveilles.json", myJsonMerveillesMondeFile.ToString());
                     break;
 
-                    
             }
 
 
