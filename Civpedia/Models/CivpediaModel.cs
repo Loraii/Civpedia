@@ -1,5 +1,4 @@
-﻿using Civpedia.Models.Classe;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -65,16 +64,16 @@ namespace Civpedia.Models
 
             switch(continent)
             {
-                case "europe":
+                case "Europe":
                     lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListEurope.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
                     break;
-                case "amerique":
+                case "Amerique":
                     lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAmerique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
                     break;
-                case "asie":
+                case "Asie":
                     lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAsie.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
                     break;
-                case "afrique":
+                case "Afrique":
                     lesDirigeants2 = lesDirigeants2.Where(x => x.NomEmpire == ListContinent.ListAfrique.Find(w => w.Contains(x.NomEmpire))).Select(x => x).ToList();
                     break;
             }
