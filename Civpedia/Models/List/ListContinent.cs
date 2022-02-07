@@ -8,26 +8,30 @@ namespace Civpedia.Models
         {
             "France",
             "Angleterre",
-            "Italie",
-            "Espagne",
-            "Portugal",
-            "Suisse",
-            "Belgique"
+            "Macédoine",
+            "Gaule",
+            "Byzance",
+            "Suède",
+            "Allemagne"
         };
         public static List<string> ListAmerique = new List<string>
         {
-            "Chili",
-            "Argentine",
-            "Bresil"
+            "Maya"
         };
         public static List<string> ListAsie = new List<string>
         {
-            "Chine",
-            "Japon",
+            "Vietnam",
+            "Byzance",
+            "Inde",
+            "Perse",
+            "Phénicie",
+            "Indonésie"
         };
         public static List<string> ListAfrique = new List<string>
         {
-            "Cameroun"
+            "Nubie",
+            "Zoulous",
+            "Egypte"
         };
     }
 }
