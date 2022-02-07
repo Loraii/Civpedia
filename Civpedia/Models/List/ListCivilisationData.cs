@@ -400,7 +400,6 @@ namespace Civpedia.Models
                 NomAmenagementEmpire = "Puits à Degrés",
                 AmenagementEmpire = "Débloque la compétence de bâtisseur permettant de construire un puits à degrés, exclusif à l'Inde. Nourriture +1, foi +1 et habitations +1. Foi +1 si adjacent à un lieu saint. Nourriture +1 pour chaque ferme adjacente. Construction impossible sur une colline ou adjacent à un autre puits à degrés."
             }
-
         };
     }
 }

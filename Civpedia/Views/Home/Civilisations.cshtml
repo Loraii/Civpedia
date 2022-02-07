@@ -40,9 +40,7 @@
 <link rel="stylesheet" href="~/css/Civilisations.css" />
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <h1>@ViewData["Title"]</h1>
-
-<p>Veuillez retrouver ici les différentes civilisations peuplant ce jeu.</p>
-
+<p>Veuillez retrouver ici les différentes civilisations peuplant le jeu.</p>
 
 <form asp-controller="Home" asp-action="Civilisations" method="post">
     <div class="card">
@@ -91,7 +89,6 @@
                 <td>Nom amenagement empire <button type="submit" class="btn btn-default" name="tri" value="10"><span class="iconify" data-icon="oi:align-center"></span></button></td>
                 <td>Amenagement empire <button type="submit" class="btn btn-default" name="tri" value="11"><span class="iconify" data-icon="oi:align-center"></span></button></td>
             </tr>
-
             @foreach (Dirigeants unDirigeant in ViewBag.Civilisations)
             {
                 <tr>
@@ -109,7 +106,6 @@
                             }
                         </ul>
                     </td>
-
                     <td>@unDirigeant.NomQuartierEmpire </td>
                     <td>@unDirigeant.QuartierEmpire </td>
                     <td>@unDirigeant.NomBatimentEmpire </td>
@@ -125,7 +121,6 @@
 <form asp-controller="Home" asp-action="AddCivilisation" method="post">
     <div class="card">
         <label>Ajouter une civilisation : </label>
-
         <label for="nomDirigeant">Nom du dirigeant : </label>
         <input asp-for="@NomDirigeant" />
         <label for="nomDirigeant">Titre du passif du dirigeant : </label>
@@ -141,38 +136,34 @@
         <label for="nomDirigeant">Unité empire : </label>
         <table>
             <tr>
-                <td>Nom unité</td>
-                <td>Attaque unité</td>
-                <td>Texte unité</td>
-                <td>Amenagement unité</td>
+                <td>Nom</td>
+                <td>Attaque</td>
+                <td>Description</td>
+                <td>Amenagement</td>
             </tr>
-
-
-
             @for (int i = 0; i < nbrligne; i++)
             {
-        <tr>
-            <td><input asp-for="@NomUnite[i]" /></td>
-            <td><input  type="number" asp-for="@AttaqueUnite[i]" /></td>
-            <td><input asp-for="@TexteUnite[i]" /></td>
-            <td><input asp-for="@AmenagementUnite[i]" /></td>
-        </tr>
-                    }
-                
-            </table>
-                <label for="nomDirigeant">Nom quartier empire : </label>
-                <input asp-for="@NomQuartierEmpire" />
-                <label for="nomDirigeant">Quartier empire : </label>
-                <input asp-for="@QuartierEmpire" />
-                <label for="nomDirigeant">Nom batiment empire : </label>
-                <input asp-for="@NomBatimentEmpire" />
-                <label for="nomDirigeant">Batiment Empire : </label>
-                <input asp-for="@BatimentEmpire" />
-                <label for="nomDirigeant">Nom amenagement empire : </label>
-                <input asp-for="@NomAmenagementEmpire" />
-                <label for="nomDirigeant">Amenagement empire : </label>
-                <input asp-for="@AmenagementEmpire" />
-                <button type="submit">Ajouter</button>
+                <tr>
+                    <td><input asp-for="@NomUnite[i]" /></td>
+                    <td><input  type="number" asp-for="@AttaqueUnite[i]" /></td>
+                    <td><input asp-for="@TexteUnite[i]" /></td>
+                    <td><input asp-for="@AmenagementUnite[i]" /></td>
+                </tr>
+            }
+        </table>
+        <label for="nomDirigeant">Nom quartier empire : </label>
+        <input asp-for="@NomQuartierEmpire" />
+        <label for="nomDirigeant">Quartier empire : </label>
+        <input asp-for="@QuartierEmpire" />
+        <label for="nomDirigeant">Nom batiment empire : </label>
+        <input asp-for="@NomBatimentEmpire" />
+        <label for="nomDirigeant">Batiment Empire : </label>
+        <input asp-for="@BatimentEmpire" />
+        <label for="nomDirigeant">Nom aménagement empire : </label>
+        <input asp-for="@NomAmenagementEmpire" />
+        <label for="nomDirigeant">Aménagement empire : </label>
+        <input asp-for="@AmenagementEmpire" />
+        <button type="submit">Ajouter</button>
     </div>
 </form>
 

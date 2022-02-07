@@ -37,7 +37,6 @@
                 <td>Aménagement de la cité-état <button type="submit" class="btn btn-default" name="tri" value="3"><span class="iconify" data-icon="oi:align-center"></span></button></td>
                 <td>Unité de la Cité-état <button type="submit" class="btn btn-default" name="tri" value="4"><span class="iconify" data-icon="oi:align-center"></span></button></td>
             </tr>
-
             @foreach (var uneCiteEtat in ViewBag.CitesEtats)
             {
         <tr>
@@ -55,8 +54,7 @@
 <form asp-controller="Home" asp-action="AddCiteEtat" method="post">
     <div class="card">
         <label>Ajouter une cité-état : </label>
-
-        <label for="nomCiteEtat">Nom de la cité-état : </label>
+        <label for="nomCiteEtat">Nom : </label>
         <input asp-for="@NomCiteEtat" />
         <label for="typeCiteEtat">Type : </label>
         <input asp-for="@TypeCiteEtat" />

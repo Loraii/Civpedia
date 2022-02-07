@@ -21,6 +21,44 @@ namespace Civpedia.Models
         {
         }
 
+        //Méthodes liées aux civilisations (add, get, unites)
+        public void addCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire, string[] NomUnite, int[] AttaqueUnite, string[] TexteUnite, string[] AmenagementUnite)
+        {
+            Dirigeants toto = new Dirigeants()
+            {
+                Id = lesCivilisations.OrderByDescending(x => x.Id).Select(x => x.Id).First() + 1,
+                NomDirigeant = NomDirigeant,
+                TitrePassifDirigeant = TitrePassifDirigeant,
+                PassifDirigeant = PassifDirigeant,
+                NomEmpire = NomEmpire,
+                TitrePassifEmpire = TitrePassifEmpire,
+                PassifEmpire = PassifEmpire,
+                UnitesEmpire = new List<UniteEmpire>() {
+                    new UniteEmpire() {
+                        Id=1,
+                        NomUnite=NomUnite[0],
+                        AtkUnite=AttaqueUnite[0],
+                        TexteUnite=TexteUnite[0],
+                        AmenagementUnite= AmenagementUnite[0]
+                    } ,
+                    new UniteEmpire() {
+                        Id=2,
+                        NomUnite=NomUnite[1],
+                        AtkUnite=AttaqueUnite[1],
+                        TexteUnite=TexteUnite[1],
+                        AmenagementUnite= AmenagementUnite[1]
+                    }
+                },
+                NomQuartierEmpire = NomQuartierEmpire,
+                QuartierEmpire = QuartierEmpire,
+                NomBatimentEmpire = NomBatimentEmpire,
+                BatimentEmpire = BatimentEmpire,
+                NomAmenagementEmpire = NomAmenagementEmpire,
+                AmenagementEmpire = AmenagementEmpire
+            };
+            lesCivilisations.Add(toto);
+        }
+
         public List<Dirigeants> getCivilisations(string RechercheNomDirigeant, string RechercheTitrePassifDirigeant, string RecherchePassifDirigeant, string RechercheNomEmpire, string RechercheTitrePassifEmpire, string RecherchePassifEmpire, string RechercheNomQuartierEmpire, string RechercheQuartierEmpire, string RechercheNomBatimentEmpire, string RechercheBatimentEmpire, string RechercheNomAmenagementEmpire, string RechercheAmenagementEmpire, TriEntity unTri, string continent)
         {
             List<Dirigeants> lesDirigeants2 = lesCivilisations.Select(x =>x).ToList();
@@ -103,9 +141,19 @@ namespace Civpedia.Models
         public UniteEmpire getUnite(int idCivilisation, int idUnite)
         {
             List<List<UniteEmpire>> liste = lesCivilisations.Where(x => x.Id == idCivilisation).Select(x => x.UnitesEmpire).ToList();
-            //liste.ForEach(x => x.Where(y => y.Id) == idUnite).Select(y => y));
             List<UniteEmpire> uneListe = liste[0].Where(x => x.Id == idUnite).Select(x => x).ToList();
             return uneListe[0];
+        }
+
+        //Méthodes liées aux merveilles naturelles (add, get)
+        public void addMerveilleNaturelle(string NomMerveille, string Effet, int NbCases)
+        {
+            lesMerveillesNaturelles.Add(new XElement("merveille",
+                        new XElement("id", Convert.ToInt32(lesMerveillesNaturelles.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
+                        new XElement("nom", NomMerveille),
+                        new XElement("effet", Effet),
+                        new XElement("nbCases", NbCases)
+                        ));
         }
 
         public List<XElement> getMerveillesNaturelles(string RechercheNomMerveille, string RechercherEffetMerveille, string triAFaire, string TailleMerveille)
@@ -164,6 +212,18 @@ namespace Civpedia.Models
             return listeMerveillesNaturelles;
         }
 
+        //Méthodes liées aux merveilles du monde (add, get)
+        public void addMerveilleDuMonde(string NomMerveille, string Ere, string Prerequis, string Effet)
+        {
+            lesMerveillesDuMonde.Add(new XElement("merveille",
+                        new XElement("id", Convert.ToInt32(lesMerveillesDuMonde.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
+                        new XElement("nom", NomMerveille),
+                        new XElement("ere", Ere),
+                        new XElement("prerequis", Prerequis),
+                        new XElement("effet", Effet)
+                        ));
+        }
+
         public List<XElement> getMerveillesDuMonde(string RechercheNomMerveille, string RechercheEreMerveille, string RecherchePrerequisMerveille, string RechercheEffetMerveille, string triAFaire)
         {
             var listeMerveillesDuMonde = lesMerveillesDuMonde.Descendants("merveille").Select(x => x).ToList();
@@ -218,6 +278,19 @@ namespace Civpedia.Models
                 listeMerveillesDuMonde = listeMerveillesDuMonde.OrderByDescending(x => x.Element("effet").Value).Select(x => x).ToList();
             }
             return listeMerveillesDuMonde;
+        }
+
+        //Méthodes liées aux cité-états (add, get)
+        public void addCiteEtat(string NomCiteEtat, string TypeCiteEtat, string BonusCiteEtat, string AmenagementCiteEtat, string UniteCiteEtat)
+        {
+            lesCitesEtats["Cités-états"].First.AddAfterSelf(JObject.Parse(
+                @"{""id"": " + 456 +
+                @",""name"":""" + NomCiteEtat + 
+                @""",""type"":""" + TypeCiteEtat + 
+                @""",""bonus"":""" + BonusCiteEtat + 
+                @""",""aménagement"":""" + AmenagementCiteEtat + 
+                @""",""unité"":""" + UniteCiteEtat + 
+                @"""}"));
         }
 
         public List<JToken> getCitesEtats(string RechercheNomCiteEtat, string RechercheTypeCiteEtat, string RechercheBonusCiteEtat, string RechercheAmenagementCiteEtat, string RechercheUniteCiteEtat, string triAFaire)
@@ -289,70 +362,7 @@ namespace Civpedia.Models
             return listeCitesEtats;
         }
 
-        public void addCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire, string[] NomUnite, int[] AttaqueUnite, string[] TexteUnite, string[] AmenagementUnite)
-        {
-            Dirigeants toto = new Dirigeants()
-            {
-                Id = lesCivilisations.OrderByDescending(x => x.Id).Select(x => x.Id).First() + 1,
-                NomDirigeant = NomDirigeant,
-                TitrePassifDirigeant = TitrePassifDirigeant,
-                PassifDirigeant = PassifDirigeant,
-                NomEmpire = NomEmpire,
-                TitrePassifEmpire = TitrePassifEmpire,
-                PassifEmpire = PassifEmpire,
-                UnitesEmpire = new List<UniteEmpire>() {
-                    new UniteEmpire() {
-                        Id=1,
-                        NomUnite=NomUnite[0],
-                        AtkUnite=AttaqueUnite[0],
-                        TexteUnite=TexteUnite[0],
-                        AmenagementUnite= AmenagementUnite[0]
-                    } ,
-                    new UniteEmpire() {
-                        Id=2,
-                        NomUnite=NomUnite[1],
-                        AtkUnite=AttaqueUnite[1],
-                        TexteUnite=TexteUnite[1],
-                        AmenagementUnite= AmenagementUnite[1]
-                    }
-                },
-                NomQuartierEmpire = NomQuartierEmpire,
-                QuartierEmpire = QuartierEmpire,
-                NomBatimentEmpire = NomBatimentEmpire,
-                BatimentEmpire = BatimentEmpire,
-                NomAmenagementEmpire = NomAmenagementEmpire,
-                AmenagementEmpire = AmenagementEmpire
-            };
-            lesCivilisations.Add(toto);
-        }
-
-        public void addMerveilleNaturelle(string NomMerveille, string Effet, int NbCases)
-        {
-            lesMerveillesNaturelles.Add(new XElement("merveille",
-                        new XElement("id", Convert.ToInt32(lesMerveillesNaturelles.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
-                        new XElement("nom", NomMerveille),
-                        new XElement("effet", Effet),
-                        new XElement("nbCases", NbCases)
-                        ));
-        }
-
-        public void addMerveilleDuMonde(string NomMerveille, string Ere, string Prerequis, string Effet)
-        {
-            lesMerveillesDuMonde.Add(new XElement("merveille",
-                        new XElement("id", Convert.ToInt32(lesMerveillesDuMonde.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
-                        new XElement("nom", NomMerveille),
-                        new XElement("ere", Ere),
-                        new XElement("prerequis", Prerequis),
-                        new XElement("effet", Effet)
-                        ));
-        }
-
-        public void addCiteEtat(string NomCiteEtat, string TypeCiteEtat, string BonusCiteEtat, string AmenagementCiteEtat, string UniteCiteEtat)
-        {
-            lesCitesEtats["Cités-états"].First.AddAfterSelf(JObject.Parse(@"{""id"": " + 456 +
-                        @",""name"":""" + NomCiteEtat + @""",""type"":""" + TypeCiteEtat + @""",""bonus"":""" + BonusCiteEtat + @""",""aménagement"":""" + AmenagementCiteEtat + @""",""unité"":""" + UniteCiteEtat + @"""}"));
-        }
-
+        //Partie conversion XML et JSON
         public void conversionEnXML(string Donnees)
         {
             switch (Donnees)
@@ -520,6 +530,7 @@ namespace Civpedia.Models
             }
         }
 
+        // Fonction de définition de l'ordre de retour pour les caractéristiques de chaque civilisation
         private string returnOrder(TriEntity unTri)
         {
             List<string> listOrdering = new List<string>();
