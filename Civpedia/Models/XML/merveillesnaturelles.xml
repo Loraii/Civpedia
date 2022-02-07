@@ -313,7 +313,7 @@
   <merveille>
     <id>53</id>
     <nom>Yosemite</nom>
-    <effet>MMerveille naturelle infranchissable de deux cases. Or +1, nourriture +1 et science +1 pour les cases adjacentes.</effet>
+    <effet>Merveille naturelle infranchissable de deux cases. Or +1, nourriture +1 et science +1 pour les cases adjacentes.</effet>
     <nbCases>2</nbCases>
   </merveille>
   <merveille>

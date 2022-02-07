@@ -1,6 +1,71 @@
 ﻿@{
     ViewData["Title"] = "Les différentes Cités Etats";
+    var RechercheNomCiteEtat = "";
+    var RechercheTypeCiteEtat = "";
+    var RechercheBonusCiteEtat = "";
+    var RechercheAmenagementCiteEtat = "";
+    var RechercheUniteCiteEtat = "";
+
+    var NomCiteEtat = "";
+    var TypeCiteEtat = "";
+    var BonusCiteEtat = "";
+    var AmenagementCiteEtat = "";
+    var UniteCiteEtat = "";
 }
+
+<link rel="stylesheet" href="~/css/Merveilles.css" />
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <h1>@ViewData["Title"]</h1>
 
-<p>Veuillez retrouver ici les différentes cités états du jeu.</p>
+<form asp-controller="Home" asp-action="CitesEtats" method="post">
+    <div class="card">
+        <label>Recherche :</label>
+        Nom de la cité-état:  <input asp-for="@RechercheNomCiteEtat" /> <br />
+        Type de la cité-état:  <input asp-for="@RechercheTypeCiteEtat" /> <br />
+        Bonus de la cité-état:  <input asp-for="@RechercheBonusCiteEtat" /> <br />
+        Aménagement de la cité-état:  <input asp-for="@RechercheAmenagementCiteEtat" /> <br />
+        Unité de la Cité-état:  <input asp-for="@RechercheUniteCiteEtat" /> <br />
+        <button type="submit">Rechercher</button>
+    </div>
+    <br />
+    <div>
+        <table>
+            <tr>
+                <td>Nom de la cité-état <button type="submit" class="btn btn-default" name="tri" value="0"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Type de la cité-état <button type="submit" class="btn btn-default" name="tri" value="1"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Bonus de la cité-état <button type="submit" class="btn btn-default" name="tri" value="2"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Aménagement de la cité-état <button type="submit" class="btn btn-default" name="tri" value="3"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Unité de la Cité-état <button type="submit" class="btn btn-default" name="tri" value="4"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+            </tr>
+
+            @foreach (var uneCiteEtat in ViewBag.CitesEtats)
+            {
+        <tr>
+            <td>@uneCiteEtat.name.Value </td>
+            <td>@uneCiteEtat.type.Value </td>
+            <td>@uneCiteEtat.bonus.Value </td>
+            <td>@uneCiteEtat.aménagement.Value </td>
+            <td>@uneCiteEtat.unité.Value </td>
+        </tr>
+            }
+        </table>
+    </div>
+</form>
+
+<form asp-controller="Home" asp-action="AddCiteEtat" method="post">
+    <div class="card">
+        <label>Ajouter une cité-état : </label>
+
+        <label for="nomCiteEtat">Nom de la cité-état : </label>
+        <input asp-for="@NomCiteEtat" />
+        <label for="typeCiteEtat">Type : </label>
+        <input asp-for="@TypeCiteEtat" />
+        <label for="bonusCiteEtat">Bonus : </label>
+        <input asp-for="@BonusCiteEtat" />
+        <label for="amenagementCiteEtat">Aménagement" : </label>
+        <input asp-for="@AmenagementCiteEtat" />
+        <label for="uniteCiteEtat">Unité : </label>
+        <input asp-for="@UniteCiteEtat" />
+        <button type="submit">Ajouter</button>
+    </div>
+</form>

@@ -1,10 +1,373 @@
 <merveilles>
 	<merveille>
 		<id>1</id>
-		<nom></nom>
-		<ere></ere>
-		<prerequis></prerequis>
-		<cout-production></cout-production>
-		<effet></effet>
+		<nom>Grand Bain</nom>
+		<ere>Antique</ere>
+		<prerequis>Poterie</prerequis>
+		<effet>Les cases de plaines inondables qui longent la rivière où est situé le Grand bain sont désormais immunisées contre les dégâts causés par les crues (mais les bonus de nourriture et de production consécutifs sont réduits de moitié). Foi +1 pour les cases de plaines inondables de la ville chaque fois que les dégâts d'une crue sont limités. Doit être construit sur une case de plaine inondable. Habitations +3. Activité +1.</effet>
 	</merveille>
+  <merveille>
+    <id>2</id>
+    <nom>Stonehenge</nom>
+    <ere>Antique</ere>
+    <prerequis>Astrologie</prerequis>
+    <effet>Octroie un prophète illustre gratuit. Les prophètes illustres peuvent fonder une religion à Stonehenge plutôt que dans un lieu saint. Doit être adjacent à une ressource de pierre et construit sur un terrain plat. Foi +2.</effet>
+  </merveille>
+  <merveille>
+    <id>3</id>
+    <nom>Jardins suspendus</nom>
+    <ere>Antique</ere>
+    <prerequis>Irrigation</prerequis>
+    <effet>Augmente la croissance de toutes les villes de 15%. Doivent être construits près d'une rivière. Habitations +2 dans la ville de construction. Habitations +1 dans toutes les autres villes dans un rayon de 6 cases. Habitations +1.</effet>
+  </merveille>
+  <merveille>
+    <id>4</id>
+    <nom>Etemenanki</nom>
+    <ere>Antique</ere>
+    <prerequis>Ecriture</prerequis>
+    <effet>Science +1 et Production +1 pour toutes les cases de marais dans votre empire et les cases de plaines inondables de votre ville. Doit être construite sur une case de plaines inondables ou de marais. Science +2.</effet>
+  </merveille>
+  <merveille>
+    <id>5</id>
+    <nom>Temple d'Artémis</nom>
+    <ere>Antique</ere>
+    <prerequis>Tir à l'arc</prerequis>
+    <effet>Activités +1 pour chaque camp, pâturage et plantation dans un rayon de 4 cases autour de cette merveille. Doit être placé sur une case adjacente à un camp. Nourriture +4, habitations +3.</effet>
+  </merveille>
+  <merveille>
+    <id>6</id>
+    <nom>Pyramides</nom>
+    <ere>Antique</ere>
+    <prerequis>Maçonnerie</prerequis>
+    <effet>Octroie un bâtisseur gratuit. Tous les bâtisseurs peuvent construire un aménagement supplémentaire. Doivent être construites dans un désert (plaines inondables de désert incluses) sans colline. Culture +2.</effet>
+  </merveille>
+  <merveille>
+    <id>7</id>
+    <nom>Grand Phare</nom>
+    <ere>Classique</ere>
+    <prerequis>Navigation astronomique</prerequis>
+    <effet>PM +1 pour toutes les unités navales. Doit être construit sur la côte et sur une case adjacente à la terre et à un port équipé d'un phare. Or +3, +1 point d'Amiral illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>8</id>
+    <nom>Gebel Barkal</nom>
+    <ere>Classique</ere>
+    <prerequis>Travail du fer</prerequis>
+    <effet>Fer +6 chaque tour. Foi +4 pour chaque ville dans un rayon de 6 cases. Doit être construit sur une colline désertique. Foi +4.</effet>
+  </merveille>
+  <merveille>
+    <id>9</id>
+    <nom>Colosse</nom>
+    <ere>Classique</ere>
+    <prerequis>Construction navale</prerequis>
+    <effet>Routes commerciales +1. Octroie un négociant. Doit être construit sur la côte et sur une case adjacente à la terre et à un port. Or +3, +1 point d'Amiral illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>10</id>
+    <nom>Pétra</nom>
+    <ere>Classique</ere>
+    <prerequis>Mathématiques</prerequis>
+    <effet>Nourriture +2, or +2 et production +1 pour toutes les cases de désert de cette ville (hors plaines inondables). Doit être construit sur une case de désert ou de plaines inondables de désert sans colline.</effet>
+  </merveille>
+  <merveille>
+    <id>11</id>
+    <nom>Armée de Terre Cuite</nom>
+    <ere>Classique</ere>
+    <prerequis>Construction</prerequis>
+    <effet>Toutes les unités actuelles reçoivent un niveau de promotion. Tous les archéologues peuvent pénétrer en terres étrangères sans traité de libre passage. Doit être construite sur une prairie ou une plaine adjacente à un campement équipé d'une caserne ou d'une écurie. +1 point de Général illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>12</id>
+    <nom>Machu Picchu</nom>
+    <ere>Classique</ere>
+    <prerequis>Ingénierie</prerequis>
+    <effet>Les cases de montagne octroient un bonus de proximité standard aux plateformes commerciales, places du théâtre et zones industrielles. Doit être construit sur une case de montagne sans volcan. Or +4.</effet>
+  </merveille>
+  <merveille>
+    <id>13</id>
+    <nom>Sainte Sophie</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Contrefort</prerequis>
+    <effet>Les missionnaires et les apôtres peuvent propager les religions une fois supplémentaire. Doit être construite sur un terrain plat adjacent à un lieu saint. Vous devez avoir fondé une religion. Foi +4.</effet>
+  </merveille>
+  <merveille>
+    <id>14</id>
+    <nom>Templo Mayor</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Tactique militaire</prerequis>
+    <effet>Activités de loisirs +1 pour chaque case de lac se trouvant dans un rayon d'une case du Templo Mayor. Nourriture +1, production +1 et culture +2 pour chaque case de lac dans votre empire. Doit être construit sur une case de lac adjacente à la terre ferme.</effet>
+  </merveille>
+  <merveille>
+    <id>15</id>
+    <nom>Kilwa Kisiwani</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Mécanique</prerequis>
+    <effet>Octroie 3 émissaires à sa construction. Lorsque vous êtes suzerain d'une cité-état, cette ville reçoit un bonus de 15% du même type que celui de la cité-état. Si vous êtes suzerain de deux cités-états de ce type ou plus, un bonus supplémentaire de 15% est octroyé à toutes vos villes. Doit êre construite sur une case de terrain plat adjacente à la côte.</effet>
+  </merveille>
+  <merveille>
+    <id>16</id>
+    <nom>Université de Sankoré</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Education</prerequis>
+    <effet>Les routes commerciales des autres civilisations vers cette ville octroient à celles-ci 1 point de science et 1 unité d'or. Science +2 pour chaque route commerciale vers cette ville. Les routes commerciales intérieures octroient 1 point de foi supplémentaire à cette ville. Doit être construite sur une case de désert ou de colline désertique, et être adjacente à un campus doté d'une université. Science +3, foi +1, +2 points de Savant illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>17</id>
+    <nom>Alhambra</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Châteaux</prerequis>
+    <effet>Emplacement pour doctrine militaire +1. Octroie les mêmes bonus défensifs que le fort. Doit être construit sur une colline adjacente à un campement. Activités +2, +2 points de Général illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>18</id>
+    <nom>Casa De Contratacion</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Cartographie</prerequis>
+    <effet>Vous obtenez 3 promotions de gouverneur. Toutes vos villes qui ne sont pas situées sur le continent de votre capitale d'origine et qui sont dirigées par un gouverneur voient leur production, leur foi et leur or augmenter de 15%. Doit être construite sur un terrain plat adjacent à une place de la gouvernance. +3 points de Marchand illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>19</id>
+    <nom>Arsenal de Venise</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Production en série</prerequis>
+    <effet>Production +100% pour les unités navales dans toutes vos villes. Doit être construit sur côte adjacente à une zone industrielle. +2 points de Ingénieur illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>20</id>
+    <nom>Grand Zimbabwe</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Banque</prerequis>
+    <effet>Routes commerciales +1. Or +2 pour toutes les routes commerciales de votre ville à chaque ressource bonus se trouvant dans un rayon de trois cases autour de la ville et dans son territoire. Doit être construit sur une case adjacente à une plateforme commerciale équipée d'un marché et adjacent à du bétail. Or +5, +2 points de Marchand illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>21</id>
+    <nom>Cité Interdite</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Imprimerie</prerequis>
+    <effet>Emplacement pour doctrine joker +1. Doit être construite sur un terrain plat adjacent au centre-ville. Culture +5.</effet>
+  </merveille>
+  <merveille>
+    <id>22</id>
+    <nom>Palais du Potala</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Astronomie</prerequis>
+    <effet>Emplacement de doctrine diplomatique +1. Points de victoire diplomatique +1. Doit être construit sur une colline adjacente à une montagne. Culture +2, foi +3.</effet>
+  </merveille>
+  <merveille>
+    <id>23</id>
+    <nom>Ruhr</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Industrialisation</prerequis>
+    <effet>Production +20% dans cette ville et +1 pour chaque mine et carrière. Doit être construite le long d'une rivière adjacente à une zone industrielle possédant une usine.</effet>
+  </merveille>
+  <merveille>
+    <id>24</id>
+    <nom>Université d'Oxford</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Théorie scientifique</prerequis>
+    <effet>Science +20% dans cette ville. Octroie 2 technologies gratuites choisies au hasard à la fin de sa construction. Doit être construit sur une plairie plate ou une plaine plate adjacente à un campus doté d'une université. +3 points de Savant illustre par tour. +2 emplacements pour chef-d'oeuvre littéraire.</effet>
+  </merveille>
+  <merveille>
+    <id>25</id>
+    <nom>Canal du Panama</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Moteur à Vapeur</prerequis>
+    <effet>Une fois terminé, un ou deux canaux adjacents sont automatiquement construits. La case de la merveille peut désormais être franchie par des unités navales. Les routes commerciales qui le traversent peuvent multiplier l'or reçu des quartiers de la ville de destination. Doit être construit sur une case terrestre plate située entre deux cases adjacentes diamétralement opposées l'une à l'autre et répondant aux critères suivants: la première doit pouvoir accueillir un canal connecté à la case où est construit le canal de Panama, et la seconde doit être une ville, une case d'eau ou une autre case pouvant accueillir un canal connecté à la merveille. Or +10.</effet>
+  </merveille>
+  <merveille>
+    <id>26</id>
+    <nom>Orszaghaz</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Assainissement</prerequis>
+    <effet>Faveur diplomatique +100% pour chaque tour commencé en tant que suzerain d'une cité-état. Doit être construit sur une rivière. Culture +4.</effet>
+  </merveille>
+  <merveille>
+    <id>27</id>
+    <nom>Big Ben</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Sciences économiques</prerequis>
+    <effet>Emplacement pour doctrine économique +1. Une fois la construction achevée, l'or de vos réserves augmente de 50%. Doit être construit près d'une rivière adjacente à une plateforme commerciale disposant d'une banque. Or +6, +3 points de Marchand illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>28</id>
+    <nom>Tour Eiffel</nom>
+    <ere>Moderne</ere>
+    <prerequis>Acier</prerequis>
+    <effet>Attrait +2 pour toutes les cases de votre civilisation. Doit être construite sur un terrain plat adjacent au centre-ville.</effet>
+  </merveille>
+  <merveille>
+    <id>29</id>
+    <nom>Pont du Golden Gate</nom>
+    <ere>Moderne</ere>
+    <prerequis>Combustion</prerequis>
+    <effet>Les unités terrestres peuvent traverser sans embarquer. Fonctionne comme une route moderne et en crée (si nécessaire) sur les cases terrestres de chaque côté. Activités +3 pour la ville. Toutes les cases de la ville gagnent 4 points d'attrait. Tourisme +100% pour tous les aménagements et parcs nationaux de la ville. Les routes commerciales qui le traversent peuvent multiplier l'or reçu des quartiers de la ville de destination. Doit être construit sur une case cotière. Le pont doit relier directement deux cases terrestres diamétralement opposées l'une à l'autre. Au moins une case d'eau doit être présente de chaque côté du pont.</effet>
+  </merveille>
+  <merveille>
+    <id>30</id>
+    <nom>Biosphère</nom>
+    <ere>Atomique</ere>
+    <prerequis>Matériaux synthétiques</prerequis>
+    <effet>Electricité +200% pour les parcs éoliens classiques ou en mer, les centrales solaires, les centrales géothermiques et les barrages hydroélectriques. Ce bâtiment et ces aménagements génèrent autant de tourisme que d'électricité. Attrait +1 pour les cases adjacentes à une forêt tropicale ou un marais dans votre empire. Doit être construite le long d'une rivière adjacente à un quartier résidentiel.</effet>
+  </merveille>
+  <merveille>
+    <id>31</id>
+    <nom>Oracle</nom>
+    <ere>Antique</ere>
+    <prerequis>Mysticisme</prerequis>
+    <effet>Le mécénat des personnages illustres nécessite 25% de foi en moins. Les quartiers de la ville font gagner 2 points de personnage illustre de même type qu'eux (par exemple, des points d'écrivain illustre pour la place du théâtre). Doit être construit sur une colline.</effet>
+  </merveille>
+  <merveille>
+    <id>32</id>
+    <nom>Colisée</nom>
+    <ere>Classique</ere>
+    <prerequis>Loisirs</prerequis>
+    <effet>Culture +2, loyauté +2 par tour et activités +2 pour chaque centre-ville dans un rayon de six cases. Doit être construit sur un terrain plat adjacent à un complexe de loisirs disposant d'une arena. Culture +2, activités +2.</effet>
+  </merveille>
+  <merveille>
+    <id>33</id>
+    <nom>Grande Bibliothèque</nom>
+    <ere>Classique</ere>
+    <prerequis>Dramaturgie et poésie</prerequis>
+    <effet>Optimise toutes les technologies de l'Antiquité et de l'ère classique. Optimisation d'une technologie choisie au hasard après qu'un autre joueur a recruté un savant illustre. Doit être construite sur un terrain plat adjacent à un campus doté d'une bibliothèque. Science +2. +1 point de Savant illustre par tour. +1 point de Ecrivain illustre par tour. +2 emplacements pour chef d'oeuvre littéraire.</effet>
+  </merveille>
+  <merveille>
+    <id>34</id>
+    <nom>Statue de Zeus</nom>
+    <ere>Classique</ere>
+    <prerequis>Formation militaire</prerequis>
+    <effet>Confère 3 archers, 3 lanciers et 1 bélier. Production +50% pour les unités avantagées contre la cavalerie. Doit être construite sur un terrain plat adjacent à un campement possédant une caserne. Or +3.</effet>
+  </merveille>
+  <merveille>
+    <id>35</id>
+    <nom>Mausolée d'Halicarnasse</nom>
+    <ere>Classique</ere>
+    <prerequis>Stratégie défensive</prerequis>
+    <effet>Science +1, foi +1 et culture +1 sur toutes les cases côtières pour cette ville. Les ingénoeurs illustres profitent d'une charge additionnelle. Doit être construit adjacent à un port.</effet>
+  </merveille>
+  <merveille>
+    <id>36</id>
+    <nom>Temple de la Mahabodhi</nom>
+    <ere>Classique</ere>
+    <prerequis>Théologie</prerequis>
+    <effet>Octroie 2 points de victoire diplomatique et 2 apôtres à la construction. Doit être construit sur une case de bois adjacente à un lieu saint disposant d'un temple. Vous devez avoir fondé une religion. Foi +4.</effet>
+  </merveille>
+  <merveille>
+    <id>37</id>
+    <nom>Apadana</nom>
+    <ere>Classique</ere>
+    <prerequis>Philosophie politique</prerequis>
+    <effet>Emissaires +1 lorsque vous construisez une merveille dans cette ville, dont une apadana. Doit être construite adjacente à votre capitale. +2 emplacements de chef-d'oeuvre (tous types).</effet>
+  </merveille>
+  <merveille>
+    <id>38</id>
+    <nom>Temple de Minakshi</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Fonction publique</prerequis>
+    <effet>Octroie 2 gurus. Le prix d'achat des gurus est réduit de 30%. Puissance religieuse +5 en combat théologique et PM +1 pour les unités religieuses adjacentes. Doit être construit sur une case adjacente à un lieu saint et vous devez avoir fondé une religion. Foi +3.</effet>
+  </merveille>
+  <merveille>
+    <id>39</id>
+    <nom>Angkor Vat</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Foires médiévales</prerequis>
+    <effet>Population +1 dans toutes les villes actuelles à sa construction. Habitations +1 dans toutes les villes. Doit être construit sur une case adjacente à un aqueduc. Foi +2.</effet>
+  </merveille>
+  <merveille>
+    <id>40</id>
+    <nom>Chichen Itza</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Guildes</prerequis>
+    <effet>Culture +2 et production +1 pour toutes les cases de forêt tropicale de cette ville. Doit être construite dans une forêt tropicale.</effet>
+  </merveille>
+  <merveille>
+    <id>41</id>
+    <nom>Mt-Saint-Michel</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Droit divin</prerequis>
+    <effet>Tous les apôtres que vous créez obtiennent la compétence de martyr, en plus de leur compétence normale. Doit être construit sur une plaine inondable ou un marais. Foi +2. +2 emplacements pour relique.</effet>
+  </merveille>
+  <merveille>
+    <id>42</id>
+    <nom>Kotoku-In</nom>
+    <ere>Médiévale</ere>
+    <prerequis>Droit divin</prerequis>
+    <effet>Foi +20% dans cette ville. Génère 4 moines-guerriers. Doit être construit sur une case adjacente à un lieu saint doté d'un temple. Le joueur peut uniquement recevoir des moines-guerriers s'il a créé une religion ou si une religion est dominante pour ce joueur ou dans sa ville.</effet>
+  </merveille>
+  <merveille>
+    <id>43</id>
+    <nom>Taj Mahal</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Humanisme</prerequis>
+    <effet>Score d'ère +1 pour chaque moment historique obtenu une fois cette merveille construite, si ce moment rapporte habituellement au moins 2 points. Doit être construit adjacent à une rivière.</effet>
+  </merveille>
+  <merveille>
+    <id>44</id>
+    <nom>Cathédrale Saint-Basile</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Eglise réformée</prerequis>
+    <effet>Possède 3 emplacements de Relique, et en octroie une gratuite. Tourisme religieux issu de cette ville +100%. Nourriture +1, production +1 et culture +1 sur toutes les cases de toundra de cette ville. Doit être construite adjacente à un centre-ville.</effet>
+  </merveille>
+  <merveille>
+    <id>45</id>
+    <nom>Torre de Belém</nom>
+    <ere>Renaissance</ere>
+    <prerequis>Mercantilisme</prerequis>
+    <effet>Les routes commerciales internationales partant de la ville octroient or+2 pour chaque ressource de luxe de la ville de destination. Lorsque la Torre de Belém est construite, les villes hors de votre continent d'origine reçoivent le bâtiment de centre-ville au moindre coût de production qu'elles peuvent actuellement construire. Doit être construite sur une case cotière adjacente à un port. Or +5, +1 point de Amiral illustre par tour.</effet>
+  </merveille>
+  <merveille>
+    <id>46</id>
+    <nom>Statue de la Liberté</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Génie civil</prerequis>
+    <effet>Octroie 4 points de victoire diplomatique à la construction. Toutes vos villes dans un rayon de 6 cases sont toujours parfaitement loyales. Doit être construite sur la côte, adjacente à la terre et à un port.</effet>
+  </merveille>
+  <merveille>
+    <id>47</id>
+    <nom>Théâtre Bolchoï</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Opéra et ballet</prerequis>
+    <effet>Octroie 2 dogmes gratuits choisis au hasard à la fin de sa construction. Doit être construit sur un terrain plat adjacent à une place du théâtre. +2 points de Ecrivain illustre par tour. +2 points de Musicien illustre par tour. +1 emplacement pour chef-d'oeuvre littéraire. +1 emplacement pour chef-d'oeuvre musical.</effet>
+  </merveille>
+  <merveille>
+    <id>48</id>
+    <nom>Ermitage</nom>
+    <ere>Industrielle</ere>
+    <prerequis>Histoire naturelle</prerequis>
+    <effet>Doit être construit le long d'une rivière. +3 points de Artiste illustre par tour. +4 emplacements pour chef-d'oeuvre artistique.</effet>
+  </merveille>
+  <merveille>
+    <id>49</id>
+    <nom>Broadway</nom>
+    <ere>Moderne</ere>
+    <prerequis>Mass-médias</prerequis>
+    <effet>Culture +20% dans cette ville. Optimisation d'un dogme de l'ère atomique choisi au hasard. Doit être construit sur un terrain plat adjacent à une place du théâtre. +3 points de Ecrivain illustre par tour. +3 points de Musicien illustre par tour. +1 emplacement pour chef-d'oeuvre littéraire. +2 emplacements pour chef-d'oeuvre musical.</effet>
+  </merveille>
+  <merveille>
+    <id>50</id>
+    <nom>Christ Rédempteur</nom>
+    <ere>Moderne</ere>
+    <prerequis>Mass-médias</prerequis>
+    <effet>Octroie 1 Relique gratuite. Le tourisme généré par les reliques et les villes saintes n'est pas handicapé par les civilisations ayant adopté le dogme des Lumières. Double la production de tourisme pour les stations balnéaires de votre civilisation. Doit être construit sur une colline. Culture +4.</effet>
+  </merveille>
+  <merveille>
+    <id>51</id>
+    <nom>Opéra de Sydney</nom>
+    <ere>Atomique</ere>
+    <prerequis>Patrimoine culturel</prerequis>
+    <effet>Doit être construit sur la côte, adjacent à la terre et à un port. Culture +8. +5 points de Musicien illustre par tour. +3 emplacements pour chef-d'oeuvre musical.</effet>
+  </merveille>
+  <merveille>
+    <id>52</id>
+    <nom>Stade Maracana</nom>
+    <ere>Atomique</ere>
+    <prerequis>Sport professionnel</prerequis>
+    <effet>Activités +2 pour chaque ville de votre civilisation. Doit être construit sur un terrain plat adjacent à un complexe de loisirs équipé d'un stade. Culture +6.</effet>
+  </merveille>
+  <merveille>
+    <id>53</id>
+    <nom>Base Antarctique Amundsen-Scott</nom>
+    <ere>Atomique</ere>
+    <prerequis>Déploiement rapide</prerequis>
+    <effet>Science +20% et production +10% dans toutes les villes. Ces rendements sont doublés dans les villes possédant au moins 5 cases exploitables de Toundra. Doit être construite sur une case de Neige ou de Toundra, près d'un campus abritant un laboratoire de recherche. +5 points de Savant illustre par tour.</effet>
+  </merveille>
 </merveilles>

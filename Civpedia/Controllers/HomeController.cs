@@ -28,7 +28,6 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        
         public IActionResult AddCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire, string[] NomUnite, int[] AttaqueUnite, string[] TexteUnite, string[] AmenagementUnite)
         {
             _civPediaModel.addCivilisation(NomDirigeant, TitrePassifDirigeant, PassifDirigeant, NomEmpire, TitrePassifEmpire, PassifEmpire, NomQuartierEmpire, QuartierEmpire, NomBatimentEmpire, BatimentEmpire, NomAmenagementEmpire, AmenagementEmpire, NomUnite, AttaqueUnite, TexteUnite, AmenagementUnite);
@@ -43,6 +42,20 @@ namespace Civpedia.Controllers
             return View("Merveilles");
         }
 
+        public IActionResult AddMerveilleDuMonde(string NomMerveille, string EreMerveille, string PrerequisMerveille, string Effet)
+        {
+            _civPediaModel.addMerveilleDuMonde(NomMerveille, EreMerveille, PrerequisMerveille, Effet);
+            MerveillesMonde();
+            return View("MerveillesMonde");
+        }
+
+        public IActionResult AddCiteEtat(string NomCiteEtat, string TypeCiteEtat, string BonusCiteEtat, string AmenagementCiteEtat, string UniteCiteEtat)
+        {
+            _civPediaModel.addCiteEtat(NomCiteEtat, TypeCiteEtat, BonusCiteEtat, AmenagementCiteEtat, UniteCiteEtat);
+            CitesEtats();
+            return View("CitesEtats");
+        }
+
         public IActionResult Merveilles(string RechercheNomMerveille = "", string RechercheEffetMerveille = "", string tri = "", string TailleMerveille = "")
         {
             string triAFaire = TriMerveillesNaturelles(tri);
@@ -52,28 +65,15 @@ namespace Civpedia.Controllers
             return View();
         }
 
-        public IActionResult MerveillesMonde()
+        public IActionResult MerveillesMonde(string RechercheNomMerveille = "", string RechercheEreMerveille = "", string RecherchePrerequisMerveille = "", string RechercheEffetMerveille = "", string tri = "")
         {
+            string triAFaire = TriMerveillesDuMonde(tri);
+            RechercheNomMerveille = String.IsNullOrEmpty(RechercheNomMerveille) ? "" : RechercheNomMerveille;
+            RechercheEreMerveille = String.IsNullOrEmpty(RechercheEreMerveille) ? "" : RechercheEreMerveille;
+            RecherchePrerequisMerveille = String.IsNullOrEmpty(RecherchePrerequisMerveille) ? "" : RecherchePrerequisMerveille;
+            RechercheEffetMerveille = String.IsNullOrEmpty(RechercheEffetMerveille) ? "" : RechercheEffetMerveille;
+            ViewBag.MerveillesDuMonde = _civPediaModel.getMerveillesDuMonde(RechercheNomMerveille, RechercheEreMerveille, RecherchePrerequisMerveille, RechercheEffetMerveille, triAFaire);
             return View();
-        }
-
-        public IActionResult Conversion()
-        {
-            return View();
-        }
-
-        public IActionResult ConversionDonnees(string Donnees, string TypeConversion)
-        {
-            switch(TypeConversion)
-            {
-                case "xml":
-                    _civPediaModel.conversionEnXML(Donnees);
-                    break;
-                case "json":
-                    _civPediaModel.conversionEnJson(Donnees);
-                    break;
-            }
-            return View("Index");
         }
 
         public IActionResult Unite(int idCivilisation, int idUnite)
@@ -98,6 +98,18 @@ namespace Civpedia.Controllers
             RechercheNomAmenagementEmpire = String.IsNullOrEmpty(RechercheNomAmenagementEmpire) ? "" : RechercheNomAmenagementEmpire;
             RechercheAmenagementEmpire = String.IsNullOrEmpty(RechercheAmenagementEmpire) ? "" : RechercheAmenagementEmpire;
             ViewBag.Civilisations = _civPediaModel.getCivilisations(RechercheNomDirigeant, RechercheTitrePassifDirigeant, RecherchePassifDirigeant, RechercheNomEmpire, RechercheTitrePassifEmpire, RecherchePassifEmpire, RechercheNomQuartierEmpire, RechercheQuartierEmpire, RechercheNomBatimentEmpire, RechercheBatimentEmpire, RechercheNomAmenagementEmpire, RechercheAmenagementEmpire, unTri, continents);
+            return View();
+        }
+
+        public IActionResult CitesEtats(string RechercheNomCiteEtat = "", string RechercheTypeCiteEtat = "", string RechercheBonusCiteEtat = "", string RechercheAmenagementCiteEtat = "", string RechercheUniteCiteEtat = "", string tri = "")
+        {
+            string triAFaire = TriCitesEtats(tri);
+            RechercheNomCiteEtat = String.IsNullOrEmpty(RechercheNomCiteEtat) ? "" : RechercheNomCiteEtat;
+            RechercheTypeCiteEtat = String.IsNullOrEmpty(RechercheTypeCiteEtat) ? "" : RechercheTypeCiteEtat;
+            RechercheBonusCiteEtat = String.IsNullOrEmpty(RechercheBonusCiteEtat) ? "" : RechercheBonusCiteEtat;
+            RechercheAmenagementCiteEtat = String.IsNullOrEmpty(RechercheAmenagementCiteEtat) ? "" : RechercheAmenagementCiteEtat;
+            RechercheUniteCiteEtat = String.IsNullOrEmpty(RechercheUniteCiteEtat) ? "" : RechercheUniteCiteEtat;
+            ViewBag.CitesEtats = _civPediaModel.getCitesEtats(RechercheNomCiteEtat, RechercheTypeCiteEtat, RechercheBonusCiteEtat, RechercheAmenagementCiteEtat, RechercheUniteCiteEtat, triAFaire);
             return View();
         }
 
@@ -163,16 +175,118 @@ namespace Civpedia.Controllers
                     retour = HttpContext.Session.GetString("EffetMerveilleOrder");
                     HttpContext.Session.SetString("NameMerveilleOrder", "");
                     break;
-                
             }
 
             return retour;
         }
 
-        public IActionResult CitesEtats()
+        public string TriMerveillesDuMonde(string tri = "")
+        {
+            string retour = "";
+            switch (tri)
+            {
+                case "0":
+                    HttpContext.Session.SetString("NameMerveilleOrder", HttpContext.Session.GetString("NameMerveilleOrder") == "NameMerveille" ? "NameMerveilleDesc" : HttpContext.Session.GetString("NameMerveilleOrder") == "NameMerveilleDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("NameMerveilleOrder")) ? "NameMerveille" : "");
+                    retour = HttpContext.Session.GetString("NameMerveilleOrder");
+                    HttpContext.Session.SetString("EreMerveilleOrder", "");
+                    HttpContext.Session.SetString("PrerequisMerveilleOrder", "");
+                    HttpContext.Session.SetString("EffetMerveilleOrder", "");
+                    break;
+                case "1":
+                    HttpContext.Session.SetString("EreMerveilleOrder", HttpContext.Session.GetString("EreMerveilleOrder") == "EreMerveille" ? "EreMerveilleDesc" : HttpContext.Session.GetString("EreMerveilleOrder") == "EreMerveilleDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("EreMerveilleOrder")) ? "EreMerveille" : "");
+                    retour = HttpContext.Session.GetString("EreMerveilleOrder");
+                    HttpContext.Session.SetString("NameMerveilleOrder", "");
+                    HttpContext.Session.SetString("PrerequisMerveilleOrder", "");
+                    HttpContext.Session.SetString("EffetMerveilleOrder", "");
+                    break;
+                case "2":
+                    HttpContext.Session.SetString("PrerequisMerveilleOrder", HttpContext.Session.GetString("PrerequisMerveilleOrder") == "PrerequisMerveille" ? "PrerequisMerveilleDesc" : HttpContext.Session.GetString("PrerequisMerveilleOrder") == "PrerequisMerveilleDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("PrerequisMerveilleOrder")) ? "PrerequisMerveille" : "");
+                    retour = HttpContext.Session.GetString("PrerequisMerveilleOrder");
+                    HttpContext.Session.SetString("NameMerveilleOrder", "");
+                    HttpContext.Session.SetString("EreMerveilleOrder", "");
+                    HttpContext.Session.SetString("EffetMerveilleOrder", "");
+                    break;
+                case "3":
+                    HttpContext.Session.SetString("EffetMerveilleOrder", HttpContext.Session.GetString("EffetMerveilleOrder") == "EffetMerveille" ? "EffetMerveilleDesc" : HttpContext.Session.GetString("EffetMerveilleOrder") == "EffetMerveilleDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("EffetMerveilleOrder")) ? "EffetMerveille" : "");
+                    retour = HttpContext.Session.GetString("EffetMerveilleOrder");
+                    HttpContext.Session.SetString("NameMerveilleOrder", "");
+                    HttpContext.Session.SetString("EreMerveilleOrder", "");
+                    HttpContext.Session.SetString("PrerequisMerveilleOrder", "");
+                    break;
+            }
+
+            return retour;
+        }
+
+        public string TriCitesEtats(string tri = "")
+        {
+            string retour = "";
+            switch (tri)
+            {
+                case "0":
+                    HttpContext.Session.SetString("NameCiteEtatOrder", HttpContext.Session.GetString("NameCiteEtatOrder") == "NameCiteEtat" ? "NameCiteEtatDesc" : HttpContext.Session.GetString("NameCiteEtatOrder") == "NameCiteEtatDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("NameCiteEtatOrder")) ? "NameCiteEtat" : "");
+                    retour = HttpContext.Session.GetString("NameCiteEtatOrder");
+                    HttpContext.Session.SetString("TypeCiteEtatOrder", "");
+                    HttpContext.Session.SetString("BonusCiteEtatOrder", "");
+                    HttpContext.Session.SetString("AmenagementCiteEtatOrder", "");
+                    HttpContext.Session.SetString("UniteCiteEtatOrder", "");
+                    break;
+                case "1":
+                    HttpContext.Session.SetString("TypeCiteEtatOrder", HttpContext.Session.GetString("TypeCiteEtatOrder") == "TypeCiteEtat" ? "TypeCiteEtatDesc" : HttpContext.Session.GetString("TypeCiteEtatOrder") == "TypeCiteEtatDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("TypeCiteEtatOrder")) ? "TypeCiteEtat" : "");
+                    retour = HttpContext.Session.GetString("TypeCiteEtatOrder");
+                    HttpContext.Session.SetString("NameCiteEtatOrder", "");
+                    HttpContext.Session.SetString("BonusCiteEtatOrder", "");
+                    HttpContext.Session.SetString("AmenagementCiteEtatOrder", "");
+                    HttpContext.Session.SetString("UniteCiteEtatOrder", "");
+                    break;
+                case "2":
+                    HttpContext.Session.SetString("BonusCiteEtatOrder", HttpContext.Session.GetString("BonusCiteEtatOrder") == "BonusCiteEtat" ? "BonusCiteEtatDesc" : HttpContext.Session.GetString("BonusCiteEtatOrder") == "BonusCiteEtatDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("BonusCiteEtatOrder")) ? "BonusCiteEtat" : "");
+                    retour = HttpContext.Session.GetString("BonusCiteEtatOrder");
+                    HttpContext.Session.SetString("NameCiteEtatOrder", "");
+                    HttpContext.Session.SetString("TypeCiteEtatOrder", "");
+                    HttpContext.Session.SetString("AmenagementCiteEtatOrder", "");
+                    HttpContext.Session.SetString("UniteCiteEtatOrder", "");
+                    break;
+                case "3":
+                    HttpContext.Session.SetString("AmenagementCiteEtatOrder", HttpContext.Session.GetString("AmenagementCiteEtatOrder") == "AmenagementCiteEtat" ? "AmenagementCiteEtatDesc" : HttpContext.Session.GetString("AmenagementCiteEtatOrder") == "AmenagementCiteEtatDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("AmenagementCiteEtatOrder")) ? "AmenagementCiteEtat" : "");
+                    retour = HttpContext.Session.GetString("AmenagementCiteEtatOrder");
+                    HttpContext.Session.SetString("NameCiteEtatOrder", "");
+                    HttpContext.Session.SetString("TypeCiteEtatOrder", "");
+                    HttpContext.Session.SetString("BonusCiteEtatOrder", "");
+                    HttpContext.Session.SetString("UniteCiteEtatOrder", "");
+                    break;
+                case "4":
+                    HttpContext.Session.SetString("UniteCiteEtatOrder", HttpContext.Session.GetString("UniteCiteEtatOrder") == "UniteCiteEtat" ? "UniteCiteEtatDesc" : HttpContext.Session.GetString("UniteCiteEtatOrder") == "UniteCiteEtatDesc" ? "" : String.IsNullOrEmpty(HttpContext.Session.GetString("UniteCiteEtatOrder")) ? "UniteCiteEtat" : "");
+                    retour = HttpContext.Session.GetString("UniteCiteEtatOrder");
+                    HttpContext.Session.SetString("NameCiteEtatOrder", "");
+                    HttpContext.Session.SetString("TypeCiteEtatOrder", "");
+                    HttpContext.Session.SetString("BonusCiteEtatOrder", "");
+                    HttpContext.Session.SetString("AmenagementCiteEtatOrder", "");
+                    break;
+            }
+
+            return retour;
+        }
+
+        public IActionResult Conversion()
         {
             return View();
         }
+
+        public IActionResult ConversionDonnees(string Donnees, string TypeConversion)
+        {
+            switch (TypeConversion)
+            {
+                case "xml":
+                    _civPediaModel.conversionEnXML(Donnees);
+                    break;
+                case "json":
+                    _civPediaModel.conversionEnJson(Donnees);
+                    break;
+            }
+            return View("Index");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

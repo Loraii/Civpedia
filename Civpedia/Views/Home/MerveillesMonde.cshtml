@@ -1,6 +1,66 @@
 ﻿@{
     ViewData["Title"] = "Les différentes Merveilles du monde";
+    var RechercheNomMerveille = "";
+    var RechercheEreMerveille = "";
+    var RecherchePrerequisMerveille = "";
+    var RechercheEffetMerveille = "";
+
+    var NomMerveille = "";
+    var EreMerveille = "";
+    var PrerequisMerveille = "";
+    var Effet = "";
 }
+
+<link rel="stylesheet" href="~/css/Merveilles.css" />
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <h1>@ViewData["Title"]</h1>
 
 <p>Veuillez retrouver ici les différentes merveilles du monde que l'on retrouve dans le jeu.</p>
+
+<form asp-controller="Home" asp-action="MerveillesMonde" method="post">
+    <div class="card">
+        <label>Recherche :</label>
+        Nom de la merveille:  <input asp-for="@RechercheNomMerveille" /> <br />
+        Ere de la merveille:  <input asp-for="@RechercheEreMerveille" /> <br />
+        Prerequis de la merveille:  <input asp-for="@RecherchePrerequisMerveille" /> <br />
+        Effet de la merveille:  <input asp-for="@RechercheEffetMerveille" /> <br />
+        <button type="submit">Rechercher</button>
+    </div>
+    <br />
+    <div>
+        <table>
+            <tr>
+                <td>Nom de la merveille <button type="submit" class="btn btn-default" name="tri" value="0"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Ere de la merveille <button type="submit" class="btn btn-default" name="tri" value="1"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Prerequis de la merveille <button type="submit" class="btn btn-default" name="tri" value="2"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+                <td>Effet de la merveille <button type="submit" class="btn btn-default" name="tri" value="3"><span class="iconify" data-icon="oi:align-center"></span></button></td>
+            </tr>
+
+            @foreach (var uneMerveille in ViewBag.MerveillesDuMonde)
+            {
+                <tr>
+                    <td>@uneMerveille.Element("nom").Value </td>
+                    <td>@uneMerveille.Element("ere").Value </td>
+                    <td>@uneMerveille.Element("prerequis").Value </td>
+                    <td>@uneMerveille.Element("effet").Value </td>
+                </tr>
+            }
+        </table>
+    </div>
+</form>
+
+<form asp-controller="Home" asp-action="AddMerveilleDuMonde" method="post">
+    <div class="card">
+        <label>Ajouter une merveille : </label>
+
+        <label for="nomMerveille">Nom de la merveille : </label>
+        <input asp-for="@NomMerveille" />
+        <label for="ereMerveille">Ere : </label>
+        <input asp-for="@EreMerveille" />
+        <label for="prerequisMerveille">Prerequis : </label>
+        <input asp-for="@PrerequisMerveille" />
+        <label for="effet">Effet : </label>
+        <input asp-for="@Effet" />
+        <button type="submit">Ajouter</button>
+    </div>
+</form>

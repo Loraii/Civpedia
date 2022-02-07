@@ -1,9 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Civpedia.Models.Classe;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Dynamic.Core;
+using System.Text.Json;
 using System.Xml.Linq;
 
 namespace Civpedia.Models
@@ -13,7 +15,7 @@ namespace Civpedia.Models
         private List<Dirigeants> lesCivilisations = ListCivilisationData.ListDirigeants;
         private JObject lesCitesEtats = JObject.Parse(File.ReadAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/citystates.json"));
         private XElement lesMerveillesNaturelles = XElement.Load($@"{Directory.GetCurrentDirectory()}/Models/XML/merveillesnaturelles.xml");
-        private XElement lesMerveillesDuMondes = XElement.Load($@"{Directory.GetCurrentDirectory()}/Models/XML/merveilles.xml");
+        private XElement lesMerveillesDuMonde = XElement.Load($@"{Directory.GetCurrentDirectory()}/Models/XML/merveilles.xml");
 
         public CivpediaModel()
         {
@@ -21,7 +23,6 @@ namespace Civpedia.Models
 
         public List<Dirigeants> getCivilisations(string RechercheNomDirigeant, string RechercheTitrePassifDirigeant, string RecherchePassifDirigeant, string RechercheNomEmpire, string RechercheTitrePassifEmpire, string RecherchePassifEmpire, string RechercheNomQuartierEmpire, string RechercheQuartierEmpire, string RechercheNomBatimentEmpire, string RechercheBatimentEmpire, string RechercheNomAmenagementEmpire, string RechercheAmenagementEmpire, TriEntity unTri, string continent)
         {
-
             List<Dirigeants> lesDirigeants2 = lesCivilisations.Select(x =>x).ToList();
 
             switch(continent)
@@ -105,12 +106,10 @@ namespace Civpedia.Models
             //liste.ForEach(x => x.Where(y => y.Id) == idUnite).Select(y => y));
             List<UniteEmpire> uneListe = liste[0].Where(x => x.Id == idUnite).Select(x => x).ToList();
             return uneListe[0];
-        
         }
 
         public List<XElement> getMerveillesNaturelles(string RechercheNomMerveille, string RechercherEffetMerveille, string triAFaire, string TailleMerveille)
         {
-
             var listeMerveillesNaturelles = lesMerveillesNaturelles.Descendants("merveille").Select(x => x).ToList();
 
             if (!String.IsNullOrEmpty(RechercheNomMerveille))
@@ -162,8 +161,132 @@ namespace Civpedia.Models
             {
                 listeMerveillesNaturelles = listeMerveillesNaturelles.OrderByDescending(x => x.Element("effet").Value).Select(x => x).ToList();
             }
-
             return listeMerveillesNaturelles;
+        }
+
+        public List<XElement> getMerveillesDuMonde(string RechercheNomMerveille, string RechercheEreMerveille, string RecherchePrerequisMerveille, string RechercheEffetMerveille, string triAFaire)
+        {
+            var listeMerveillesDuMonde = lesMerveillesDuMonde.Descendants("merveille").Select(x => x).ToList();
+
+            if (!String.IsNullOrEmpty(RechercheNomMerveille))
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.Where(x => x.Element("nom").Value.Contains(RechercheNomMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercheEreMerveille))
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.Where(x => x.Element("ere").Value.Contains(RechercheEreMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RecherchePrerequisMerveille))
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.Where(x => x.Element("prerequis").Value.Contains(RecherchePrerequisMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercheEffetMerveille))
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.Where(x => x.Element("effet").Value.Contains(RechercheEffetMerveille, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+
+            if (triAFaire == "NameMerveille")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderBy(x => x.Element("nom").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "NameMerveilleDesc")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderByDescending(x => x.Element("nom").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "EreMerveille")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderBy(x => x.Element("ere").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "EreMerveilleDesc")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderByDescending(x => x.Element("ere").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "PrerequisMerveille")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderBy(x => x.Element("prerequis").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "PrerequisMerveilleDesc")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderByDescending(x => x.Element("prerequis").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "EffetMerveille")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderBy(x => x.Element("effet").Value).Select(x => x).ToList();
+            }
+            else if (triAFaire == "EffetMerveilleDesc")
+            {
+                listeMerveillesDuMonde = listeMerveillesDuMonde.OrderByDescending(x => x.Element("effet").Value).Select(x => x).ToList();
+            }
+            return listeMerveillesDuMonde;
+        }
+
+        public List<JToken> getCitesEtats(string RechercheNomCiteEtat, string RechercheTypeCiteEtat, string RechercheBonusCiteEtat, string RechercheAmenagementCiteEtat, string RechercheUniteCiteEtat, string triAFaire)
+        {
+            var listeCitesEtats = lesCitesEtats["Cités-états"].Select(x => x).ToList();
+
+            if (!String.IsNullOrEmpty(RechercheNomCiteEtat))
+            {
+                listeCitesEtats = listeCitesEtats.Where(x => x["name"].ToString().Contains(RechercheNomCiteEtat, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercheTypeCiteEtat))
+            {
+                listeCitesEtats = listeCitesEtats.Where(x => x["type"].ToString().Contains(RechercheTypeCiteEtat, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercheBonusCiteEtat))
+            {
+                listeCitesEtats = listeCitesEtats.Where(x => x["bonus"].ToString().Contains(RechercheBonusCiteEtat, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercheAmenagementCiteEtat))
+            {
+                listeCitesEtats = listeCitesEtats.Where(x => x["aménagement"].ToString().Contains(RechercheAmenagementCiteEtat, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+            if (!String.IsNullOrEmpty(RechercheUniteCiteEtat))
+            {
+                listeCitesEtats = listeCitesEtats.Where(x => x["unité"].ToString().Contains(RechercheUniteCiteEtat, StringComparison.CurrentCultureIgnoreCase)).Select(x => x).ToList();
+            }
+
+            if (triAFaire == "NameCiteEtat")
+            {
+                listeCitesEtats = listeCitesEtats.OrderBy(x => x["name"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "NameCiteEtatDesc")
+            {
+                listeCitesEtats = listeCitesEtats.OrderByDescending(x => x["name"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "TypeCiteEtat")
+            {
+                listeCitesEtats = listeCitesEtats.OrderBy(x => x["type"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "TypeCiteEtatDesc")
+            {
+                listeCitesEtats = listeCitesEtats.OrderByDescending(x => x["type"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "BonusCiteEtat")
+            {
+                listeCitesEtats = listeCitesEtats.OrderBy(x => x["bonus"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "BonusCiteEtatDesc")
+            {
+                listeCitesEtats = listeCitesEtats.OrderByDescending(x => x["bonus"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "AmenagementCiteEtat")
+            {
+                listeCitesEtats = listeCitesEtats.OrderBy(x => x["aménagement"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "AmenagementCiteEtatDesc")
+            {
+                listeCitesEtats = listeCitesEtats.OrderByDescending(x => x["aménagement"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "UniteCiteEtat")
+            {
+                listeCitesEtats = listeCitesEtats.OrderBy(x => x["unité"].ToString()).Select(x => x).ToList();
+            }
+            else if (triAFaire == "UniteCiteEtatDesc")
+            {
+                listeCitesEtats = listeCitesEtats.OrderByDescending(x => x["unité"].ToString()).Select(x => x).ToList();
+            }
+
+            return listeCitesEtats;
         }
 
         public void addCivilisation(string NomDirigeant, string TitrePassifDirigeant, string PassifDirigeant, string NomEmpire, string TitrePassifEmpire, string PassifEmpire, string NomQuartierEmpire, string QuartierEmpire, string NomBatimentEmpire, string BatimentEmpire, string NomAmenagementEmpire, string AmenagementEmpire, string[] NomUnite, int[] AttaqueUnite, string[] TexteUnite, string[] AmenagementUnite)
@@ -205,13 +328,29 @@ namespace Civpedia.Models
 
         public void addMerveilleNaturelle(string NomMerveille, string Effet, int NbCases)
         {
-
             lesMerveillesNaturelles.Add(new XElement("merveille",
                         new XElement("id", Convert.ToInt32(lesMerveillesNaturelles.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
                         new XElement("nom", NomMerveille),
                         new XElement("effet", Effet),
                         new XElement("nbCases", NbCases)
                         ));
+        }
+
+        public void addMerveilleDuMonde(string NomMerveille, string Ere, string Prerequis, string Effet)
+        {
+            lesMerveillesDuMonde.Add(new XElement("merveille",
+                        new XElement("id", Convert.ToInt32(lesMerveillesDuMonde.Descendants("merveille").OrderByDescending(x => Convert.ToInt32(x.Element("id").Value)).Select(x => x.Element("id").Value).First()) + 1),
+                        new XElement("nom", NomMerveille),
+                        new XElement("ere", Ere),
+                        new XElement("prerequis", Prerequis),
+                        new XElement("effet", Effet)
+                        ));
+        }
+
+        public void addCiteEtat(string NomCiteEtat, string TypeCiteEtat, string BonusCiteEtat, string AmenagementCiteEtat, string UniteCiteEtat)
+        {
+            lesCitesEtats["Cités-états"].First.AddAfterSelf(JObject.Parse(@"{""id"": " + 456 +
+                        @",""name"":""" + NomCiteEtat + @""",""type"":""" + TypeCiteEtat + @""",""bonus"":""" + BonusCiteEtat + @""",""aménagement"":""" + AmenagementCiteEtat + @""",""unité"":""" + UniteCiteEtat + @"""}"));
         }
 
         public void conversionEnXML(string Donnees)
@@ -279,21 +418,20 @@ namespace Civpedia.Models
 
                 case "merveillesMonde":
                     var newXmlMerveillesMondesFile = new XElement("merveilles",
-                        from merveillesNaturelles in lesMerveillesNaturelles.Descendants("merveille")
+                        from merveillesDuMonde in lesMerveillesDuMonde.Descendants("merveille")
                         select new XElement("merveille",
-                        new XElement("id", merveillesNaturelles.Element("id").Value),
-                        new XElement("nom", merveillesNaturelles.Element("nom").Value),
-                        new XElement("ere", merveillesNaturelles.Element("ere").Value),
-                        new XElement("prerequis", merveillesNaturelles.Element("prerequis").Value),
-                        new XElement("cout-production", merveillesNaturelles.Element("cout-production").Value),
-                        new XElement("effet", merveillesNaturelles.Element("effet").Value)
+                        new XElement("id", merveillesDuMonde.Element("id").Value),
+                        new XElement("nom", merveillesDuMonde.Element("nom").Value),
+                        new XElement("ere", merveillesDuMonde.Element("ere").Value),
+                        new XElement("prerequis", merveillesDuMonde.Element("prerequis").Value),
+                        new XElement("effet", merveillesDuMonde.Element("effet").Value)
                         )
                         );
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/XML/merveilles.xml", newXmlMerveillesMondesFile.ToString());
                     break;
             }
-
         }
+
         public void conversionEnJson(string Donnees)
         {
             switch (Donnees)
@@ -313,7 +451,7 @@ namespace Civpedia.Models
                                     new JProperty("titrePassifEmpire", civilisation.TitrePassifEmpire),
                                     new JProperty("passifEmpire", civilisation.PassifEmpire),
                                     new JProperty("unitesEmpire",
-                                    new JArray(
+                                        new JArray(
                                         from unite in civilisation.UnitesEmpire
                                         select new JObject(
                                             new JProperty("idUnite", unite.Id),
@@ -322,12 +460,12 @@ namespace Civpedia.Models
                                             new JProperty("texteUnite", unite.TexteUnite),
                                             new JProperty("amenagementUnite", unite.AmenagementUnite)
                                         ))),
-                                        new JProperty("nomQuartierEmpire", civilisation.NomQuartierEmpire),
-                                        new JProperty("quartierEmpire", civilisation.QuartierEmpire),
-                                        new JProperty("nomBatimentEmpire", civilisation.NomBatimentEmpire),
-                                        new JProperty("batimentEmpire", civilisation.BatimentEmpire),
-                                        new JProperty("nomAmenagementEmpire", civilisation.NomAmenagementEmpire),
-                                        new JProperty("amenagementEmpire", civilisation.AmenagementEmpire)
+                                    new JProperty("nomQuartierEmpire", civilisation.NomQuartierEmpire),
+                                    new JProperty("quartierEmpire", civilisation.QuartierEmpire),
+                                    new JProperty("nomBatimentEmpire", civilisation.NomBatimentEmpire),
+                                    new JProperty("batimentEmpire", civilisation.BatimentEmpire),
+                                    new JProperty("nomAmenagementEmpire", civilisation.NomAmenagementEmpire),
+                                    new JProperty("amenagementEmpire", civilisation.AmenagementEmpire)
                                     ))));
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/civilisations.json", myJsonCivilisationFile.ToString());
                     break;
@@ -369,21 +507,17 @@ namespace Civpedia.Models
                         new JObject(
                             new JProperty("Merveilles",
                             new JArray(
-                                from merveille in lesMerveillesNaturelles.Descendants("merveille")
+                                from merveille in lesMerveillesDuMonde.Descendants("merveille")
                                 select new JObject(
                                     new JProperty("id", merveille.Element("id").Value),
                                     new JProperty("nom", merveille.Element("nom").Value),
                                     new JProperty("ere", merveille.Element("ere").Value),
                                     new JProperty("prerequis", merveille.Element("prerequis").Value),
-                                    new JProperty("cout-production", merveille.Element("cout-production").Value),
                                     new JProperty("effet", merveille.Element("effet").Value)
                                     ))));
                     File.WriteAllText($@"{Directory.GetCurrentDirectory()}/Models/Json/merveilles.json", myJsonMerveillesMondeFile.ToString());
                     break;
-
             }
-
-
         }
 
         private string returnOrder(TriEntity unTri)
@@ -499,7 +633,5 @@ namespace Civpedia.Models
 
             return string.Join(',', listOrdering);
         }
-
-      
     }
 }
