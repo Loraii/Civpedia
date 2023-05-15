@@ -10,6 +10,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.15" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CivPediaTest\CivPediaTest.csproj" />
+  </ItemGroup>
     
 
 </Project>

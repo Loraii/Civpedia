@@ -4,11 +4,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Civpedia", "Civpedia\Civpedia.csproj", "{8DD91EB7-2734-4F43-8385-02939709FEBF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{AEE58C68-0489-41D6-96A8-78522DFBF5CA} = {AEE58C68-0489-41D6-96A8-78522DFBF5CA}
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivPediaTest", "CivPediaTest\CivPediaTest.csproj", "{AEE58C68-0489-41D6-96A8-78522DFBF5CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCivPedia", "TestCivPedia\TestCivPedia.csproj", "{39626D59-DF0C-4AC7-A804-43423E285204}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,10 +17,10 @@ Global
 		{8DD91EB7-2734-4F43-8385-02939709FEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DD91EB7-2734-4F43-8385-02939709FEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DD91EB7-2734-4F43-8385-02939709FEBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEE58C68-0489-41D6-96A8-78522DFBF5CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEE58C68-0489-41D6-96A8-78522DFBF5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEE58C68-0489-41D6-96A8-78522DFBF5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEE58C68-0489-41D6-96A8-78522DFBF5CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39626D59-DF0C-4AC7-A804-43423E285204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39626D59-DF0C-4AC7-A804-43423E285204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39626D59-DF0C-4AC7-A804-43423E285204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39626D59-DF0C-4AC7-A804-43423E285204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
