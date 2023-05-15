@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Civpedia", "Civpedia\Civpedia.csproj", "{8DD91EB7-2734-4F43-8385-02939709FEBF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AEE58C68-0489-41D6-96A8-78522DFBF5CA} = {AEE58C68-0489-41D6-96A8-78522DFBF5CA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivPediaTest", "CivPediaTest\CivPediaTest.csproj", "{AEE58C68-0489-41D6-96A8-78522DFBF5CA}"
 EndProject
